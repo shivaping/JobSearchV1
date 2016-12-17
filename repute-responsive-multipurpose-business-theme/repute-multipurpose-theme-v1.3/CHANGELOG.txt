@@ -1,0 +1,54 @@
+//************************//
+//	CHANGELOG
+//************************//
+
+Version 1.3 07-02-2016
+- ADDED 2 all new blog homepage
+- ADDED 2 html email templates
+- UPDATED Bootstrap to v3.3.6
+- UPDATED Font Awesome to v4.5.0
+- IMPROVED slider, by default now slider in homepage is responsive
+- FIXED default and skin styles for buttons
+- FIXED search box, added form tag
+- FIXED custom tabs bottom right to target correct content pane
+- FIXED skin styles for portfolio filter buttons in active state
+- REMOVED unnecessary div at social connect element
+
+Version 1.2.1 23-10-2015
+- FIXED missing opening html tag at shop and one-page templates
+
+Version 1.2 21-10-2015
+- ADDED new home page with fullscreen hero unit image and fullscreen slider
+- ADDED new menu to showcase theme features: Navigation, Hero Unit, Page Header, Footers
+- ADDED fixed-top menu and auto-hiding support on fullscreen slider
+- ADDED new hero unit types: Fullscreen Image, Fullscreen Slider, Fullscreen Image (no overlay), Fullscreen Slider (no overlay)
+- ADDED new page header types: Minimal Left Aligned, Minimal Center Aligned, Minimal Right Aligned, Page Header With Intro Text, Page Header With Image Background, Page Header With Pattern Background
+- ADDED new footer types: Light Minimal, Dark Minimal, Dark Gradient
+- ADDED new service set
+- FIXED issues on dark header navigation bar
+- FIXED animated slider, on firefox animation is disabled after last slide
+- FIXED arrow on image gallery for single portfolio page
+- FIXED unclickable logo image
+- UPDATED misc theme styles to improve look and feel
+
+
+Version 1.1 20-08-2015
+- ADDED e-commerce/shop templates with skins (shop front page, single product page, shopping cart, checkout, product search result, login and register page)
+- ADDED more header and footer options
+- ADDED more buttons (outline buttons. no transition buttons, rounded and no rounded buttons )
+- ADDED custom tabs bottom (left and right aligned)
+- ADDED more form layouts (form with visible label, simple login form, inline form)
+- ADDED mega menu
+- ADDED my-custom-styles.css for custom development
+- UPDATED bootstrap to v3.3.5
+- UPDATED fontawesome to v4.4.0
+- UPDATED slick carousel to v1.5.7
+- FIXED footer heading color
+- FIXED contact form (one-page template) action attribute value
+- FIXED isotope image height, isotope miscalculate image height because image isn’t loaded yet
+- FIXED .hide-first class for show/hide element toggling
+- FIXED all slick related container because of the latest slick version. Don’t use .container, instead add new wrapper for example .portfolio-container or .testimonial-container
+- FIXED misc: left border radius for input group, decoupled .footer from wrapper, fancy radio button, parallax at one-page
+
+Version 1.0, 18-02-2015
+- initial release

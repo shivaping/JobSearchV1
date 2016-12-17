@@ -1,0 +1,2 @@
+﻿CREATE USER [pu] FOR LOGIN [pu];
+

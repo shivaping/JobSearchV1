@@ -1,0 +1,24 @@
+More than one context type was found in the assembly
+
+http://levelnis.co.uk/blog/how-can-you-use-webapi-to-authenticate-users-of-your-mvc-application
+http://bitoftech.net/2014/06/09/angularjs-token-authentication-using-asp-net-web-api-2-owin-asp-net-identity/
+
+Enable-Migrations -ContextTypeName JobSearch.Models.ApplicationDbContext
+
+Install-Package Microsoft.AspNet.WebHelpers
+
+Install-Package Microsoft.AspNet.WebPages.Data
+
+http://localhost/JobSearch.WebAPI/token
+User-Agent: Fiddler
+Content-Type: application/x-www-form-urlencoded
+Host: localhost
+Content-Length: 74
+grant_type=password&username=shiva.koundinya@gmail.com&password=Moukhthi@9
+
+
+http://localhost/JobSearch.WebAPI/api/values
+authorization : bearer XLZXjoFqZZPHNDTWpUKFX-9E2hk2nSRKQkECzEW-ASO-h-xwaDQyjzP2rkkYu6RMO_DiXcB2hKgGpCC7A4M21uTOvJMZZdGTHXuxl8Wuev1CknRotMiMPDUfOG3UUKkEobDm4Tztf63d7z_eb8RLBry4F1a5bDa4uj5d69bBSCQVtBtixuLg-Xx3zMLIY2LXlMvRkk7xsryAlNrDjiHaeunJ9JDTNikGNrkoVKoxZTVwNDdR6GKhjoCiBxb72ZrlGB2prh32M4d2OSG67nFcwhObSpCNLt-0QzHlzHgQ9o0e7Wjt7xOwDCrqw7xVynPofjzjUApty-rs6hDy_68A1OEz7DFX61IkWdJQcuDQWyVO73Ujrqf6i_Uq88BPlTieLq56vDgK8EMbGCV0dFEpZHF4VEiqt-REao5HHjJx2fmkGYpKP9y0wiDZKVH5shz1S8YQRw65xz1KMJY88lS-BrB0wuK7I4xjAJxGFaFCVVj_hBmAfsdvjZ1vMXYkwG_R7BXgeatLUTN4vmai2diUsg
+
+
+http://stackoverflow.com/questions/25071817/owin-bearer-token-authentication-authorize-controller/26573873#26573873

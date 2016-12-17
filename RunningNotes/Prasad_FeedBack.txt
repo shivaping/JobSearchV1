@@ -1,0 +1,14 @@
+10 Dec 2016
+	1) User Identity in seperate DB
+	2) Social Logins
+	3) Reports --> Later stage
+	4) Resume skills in a table.
+	5) Angular and other unit tests.
+	6) Jquery ?...
+	7) Multi Layered Architecture JobSearch.Web, JobSearch.API, JobSearch.DataAccess and corresponding unit tests.
+	8) Design patterns note them down
+	
+Pages
+	
+	Job Posts, Resume post, Job search, Job Details, User Details, Employer Details, Restrict access for anonymous users for Job Search details
+	

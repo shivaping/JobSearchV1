@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [pu]
+    WITH PASSWORD = N'aor^ymlOw+igKplq%Jzr4b<hmsFT7_&#$!~<ozlaKyaqgmgm', SID = 0x2830FF994022694593E9787E3815D53E, DEFAULT_DATABASE = [JobPortal], DEFAULT_LANGUAGE = [us_english], CHECK_POLICY = OFF;
+
