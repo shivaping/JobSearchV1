@@ -16,33 +16,29 @@ namespace JobSearch.DataAcccess.Models
         {
         }
 
-        public DbSet<Employer_Posting> Employer_Posting { get; set; }
-        public DbSet<Employer_Posting_Type> Employer_Posting_Type { get; set; }
+        public DbSet<EmployerPosting> EmployerPostings { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<JobType> JobTypes { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<User_Detail> User_Detail { get; set; }
-        public DbSet<User_Education> User_Education { get; set; }
-        public DbSet<User_Job_Details> User_Job_Details { get; set; }
-        public DbSet<User_Jobs> User_Jobs { get; set; }
-        public DbSet<User_Skill> User_Skill { get; set; }
-        public DbSet<User_Type> User_Type { get; set; }
+        public DbSet<UserDetail> UserDetails { get; set; }
+        public DbSet<UserEducation> UserEducations { get; set; }
+        public DbSet<UserJob> UserJobs { get; set; }
+        public DbSet<UserResume> UserResumes { get; set; }
+        public DbSet<UserSkill> UserSkills { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new Employer_PostingMap());
-            modelBuilder.Configurations.Add(new Employer_Posting_TypeMap());
+            modelBuilder.Configurations.Add(new EmployerPostingMap());
             modelBuilder.Configurations.Add(new JobMap());
+            modelBuilder.Configurations.Add(new JobTypeMap());
             modelBuilder.Configurations.Add(new SkillMap());
             modelBuilder.Configurations.Add(new sysdiagramMap());
-            modelBuilder.Configurations.Add(new UserMap());
-            modelBuilder.Configurations.Add(new User_DetailMap());
-            modelBuilder.Configurations.Add(new User_EducationMap());
-            modelBuilder.Configurations.Add(new User_Job_DetailsMap());
-            modelBuilder.Configurations.Add(new User_JobsMap());
-            modelBuilder.Configurations.Add(new User_SkillMap());
-            modelBuilder.Configurations.Add(new User_TypeMap());
+            modelBuilder.Configurations.Add(new UserDetailMap());
+            modelBuilder.Configurations.Add(new UserEducationMap());
+            modelBuilder.Configurations.Add(new UserJobMap());
+            modelBuilder.Configurations.Add(new UserResumeMap());
+            modelBuilder.Configurations.Add(new UserSkillMap());
         }
     }
 }

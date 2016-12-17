@@ -44,6 +44,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,36 +54,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Employer_Posting.cs" />
-    <Compile Include="Models\Employer_Posting_Type.cs" />
+    <Compile Include="Models\EmployerPosting.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobPortalContext.cs" />
-    <Compile Include="Models\Mapping\Employer_PostingMap.cs" />
-    <Compile Include="Models\Mapping\Employer_Posting_TypeMap.cs" />
+    <Compile Include="Models\JobType.cs" />
+    <Compile Include="Models\Mapping\EmployerPostingMap.cs" />
     <Compile Include="Models\Mapping\JobMap.cs" />
+    <Compile Include="Models\Mapping\JobTypeMap.cs" />
     <Compile Include="Models\Mapping\SkillMap.cs" />
     <Compile Include="Models\Mapping\sysdiagramMap.cs" />
-    <Compile Include="Models\Mapping\UserMap.cs" />
-    <Compile Include="Models\Mapping\User_DetailMap.cs" />
-    <Compile Include="Models\Mapping\User_EducationMap.cs" />
-    <Compile Include="Models\Mapping\User_JobsMap.cs" />
-    <Compile Include="Models\Mapping\User_Job_DetailsMap.cs" />
-    <Compile Include="Models\Mapping\User_SkillMap.cs" />
-    <Compile Include="Models\Mapping\User_TypeMap.cs" />
+    <Compile Include="Models\Mapping\UserDetailMap.cs" />
+    <Compile Include="Models\Mapping\UserEducationMap.cs" />
+    <Compile Include="Models\Mapping\UserJobMap.cs" />
+    <Compile Include="Models\Mapping\UserResumeMap.cs" />
+    <Compile Include="Models\Mapping\UserSkillMap.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\sysdiagram.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\User_Detail.cs" />
-    <Compile Include="Models\User_Education.cs" />
-    <Compile Include="Models\User_Jobs.cs" />
-    <Compile Include="Models\User_Job_Details.cs" />
-    <Compile Include="Models\User_Skill.cs" />
-    <Compile Include="Models\User_Type.cs" />
+    <Compile Include="Models\UserDetail.cs" />
+    <Compile Include="Models\UserEducation.cs" />
+    <Compile Include="Models\UserJob.cs" />
+    <Compile Include="Models\UserResume.cs" />
+    <Compile Include="Models\UserSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

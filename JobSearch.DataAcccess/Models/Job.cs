@@ -5,22 +5,24 @@ namespace JobSearch.DataAcccess.Models
 {
     public partial class Job
     {
-        public int job_id { get; set; }
-        public string location { get; set; }
-        public string jobtitle { get; set; }
-        public string technology { get; set; }
-        public string job_description { get; set; }
-        public string category { get; set; }
-        public string client { get; set; }
-        public string experience { get; set; }
-        public string generalskills { get; set; }
-        public string technicalskills { get; set; }
-        public string About_Client { get; set; }
-        public Nullable<int> positions { get; set; }
+        public int ID { get; set; }
+        public string Location { get; set; }
+        public string JobTitle { get; set; }
+        public string Technology { get; set; }
+        public string JobDescription { get; set; }
+        public string Category { get; set; }
+        public string Client { get; set; }
+        public string Experience { get; set; }
+        public string GeneralSkills { get; set; }
+        public string TechnicalSkills { get; set; }
+        public string AboutClient { get; set; }
+        public Nullable<int> Positions { get; set; }
         public bool IsActive { get; set; }
-        public string referralamount { get; set; }
-        public Nullable<int> userid { get; set; }
+        public string ReferralAmount { get; set; }
+        public string CreatedBy { get; set; }
         public Nullable<int> JobType { get; set; }
         public Nullable<System.DateTime> PostedDate { get; set; }
+        public virtual JobType JobType1 { get; set; }
+        public virtual UserJob UserJob { get; set; }
     }
 }

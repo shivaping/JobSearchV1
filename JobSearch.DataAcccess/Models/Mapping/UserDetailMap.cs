@@ -3,16 +3,16 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace JobSearch.DataAcccess.Models.Mapping
 {
-    public class User_DetailMap : EntityTypeConfiguration<User_Detail>
+    public class UserDetailMap : EntityTypeConfiguration<UserDetail>
     {
-        public User_DetailMap()
+        public UserDetailMap()
         {
             // Primary Key
-            this.HasKey(t => t.User_Detail_Id);
+            this.HasKey(t => t.ID);
 
             // Properties
-            this.Property(t => t.User_Detail_Id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.Property(t => t.UserID)
+                .HasMaxLength(128);
 
             this.Property(t => t.Address1)
                 .IsRequired()
@@ -43,15 +43,15 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .HasMaxLength(255);
 
             // Table & Column Mappings
-            this.ToTable("User_Detail");
-            this.Property(t => t.User_Detail_Id).HasColumnName("User_Detail_Id");
-            this.Property(t => t.User_Id).HasColumnName("User_Id");
+            this.ToTable("UserDetail");
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.UserID).HasColumnName("UserID");
             this.Property(t => t.Address1).HasColumnName("Address1");
             this.Property(t => t.Address2).HasColumnName("Address2");
             this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.City).HasColumnName("City");
-            this.Property(t => t.State_Id).HasColumnName("State_Id");
-            this.Property(t => t.Country_Id).HasColumnName("Country_Id");
+            this.Property(t => t.State).HasColumnName("State");
+            this.Property(t => t.Country).HasColumnName("Country");
             this.Property(t => t.Gender).HasColumnName("Gender");
             this.Property(t => t.Phone).HasColumnName("Phone");
             this.Property(t => t.Fax).HasColumnName("Fax");
@@ -62,12 +62,6 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.Married).HasColumnName("Married");
             this.Property(t => t.Created_Date).HasColumnName("Created_Date");
             this.Property(t => t.Updated_Date).HasColumnName("Updated_Date");
-
-            // Relationships
-            this.HasRequired(t => t.User)
-                .WithMany(t => t.User_Detail)
-                .HasForeignKey(d => d.User_Id);
-
         }
     }
 }

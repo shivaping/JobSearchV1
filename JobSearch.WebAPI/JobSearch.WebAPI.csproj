@@ -296,6 +296,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JobSearch.DataAcccess\JobSearch.DataAcccess.csproj">
+      <Project>{810e714f-396c-4e72-8945-8258ef8fe5be}</Project>
+      <Name>JobSearch.DataAcccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JobSearch.Model\JobSearch.Model.csproj">
       <Project>{034ff942-909d-4b3c-a90c-6380759ea318}</Project>
       <Name>JobSearch.Model</Name>

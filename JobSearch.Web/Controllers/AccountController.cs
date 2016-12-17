@@ -117,7 +117,7 @@ namespace JobSearch.Web.Controllers
                 var ticket = Startup.OAuthBearerOptions.AccessTokenFormat.Unprotect(response.Data);
                 var id = new ClaimsIdentity(ticket.Identity.Claims, DefaultAuthenticationTypes.ApplicationCookie);
                 AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = true }, id);
-
+                
                 //return RedirectToLocal(returnUrl);
 
             }

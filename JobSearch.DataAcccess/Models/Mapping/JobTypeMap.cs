@@ -3,17 +3,14 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace JobSearch.DataAcccess.Models.Mapping
 {
-    public class Employer_Posting_TypeMap : EntityTypeConfiguration<Employer_Posting_Type>
+    public class JobTypeMap : EntityTypeConfiguration<JobType>
     {
-        public Employer_Posting_TypeMap()
+        public JobTypeMap()
         {
             // Primary Key
-            this.HasKey(t => t.Employer_Posting_Type_Id);
+            this.HasKey(t => t.ID);
 
             // Properties
-            this.Property(t => t.Employer_Posting_Type_Id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
             this.Property(t => t.Name)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -23,8 +20,8 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .HasMaxLength(50);
 
             // Table & Column Mappings
-            this.ToTable("Employer_Posting_Type");
-            this.Property(t => t.Employer_Posting_Type_Id).HasColumnName("Employer_Posting_Type_Id");
+            this.ToTable("JobType");
+            this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Description).HasColumnName("Description");
         }

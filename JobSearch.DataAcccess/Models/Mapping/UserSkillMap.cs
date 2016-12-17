@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace JobSearch.DataAcccess.Models.Mapping
 {
-    public class SkillMap : EntityTypeConfiguration<Skill>
+    public class UserSkillMap : EntityTypeConfiguration<UserSkill>
     {
-        public SkillMap()
+        public UserSkillMap()
         {
             // Primary Key
             this.HasKey(t => t.ID);
@@ -14,19 +14,20 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.ID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
-            this.Property(t => t.SkillName)
+            this.Property(t => t.UserID)
                 .IsRequired()
-                .HasMaxLength(100);
-
-            this.Property(t => t.SkillDescription)
-                .IsRequired()
-                .HasMaxLength(255);
+                .HasMaxLength(128);
 
             // Table & Column Mappings
-            this.ToTable("Skill");
+            this.ToTable("UserSkill");
             this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.SkillName).HasColumnName("SkillName");
-            this.Property(t => t.SkillDescription).HasColumnName("SkillDescription");
+            this.Property(t => t.UserID).HasColumnName("UserID");
+            this.Property(t => t.SkillID).HasColumnName("SkillID");
+
+            // Relationships
+            this.HasRequired(t => t.Skill)
+                .WithOptional(t => t.UserSkill);
+
         }
     }
 }
