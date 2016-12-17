@@ -21,6 +21,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.APIHelper", "JobS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.DataAcccess", "JobSearch.DataAcccess\JobSearch.DataAcccess.csproj", "{810E714F-396C-4E72-8945-8258EF8FE5BE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProjects", "{C4389B09-C096-49FB-9994-865FBCFF96B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy", "Legacy", "{C050886F-D678-41DD-915A-E47FB5A56F06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseBackUp", "DataBaseBackUp", "{EF02F808-3509-4A61-94BE-32610E6DD33C}"
+	ProjectSection(SolutionItems) = preProject
+		DataBaseBackUp\JobPortal.bak = DataBaseBackUp\JobPortal.bak
+		DataBaseBackUp\JobPortal_Scripts.sql = DataBaseBackUp\JobPortal_Scripts.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +76,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6E3C021E-63A9-4BF0-B33C-77DDC1D07FB8} = {C050886F-D678-41DD-915A-E47FB5A56F06}
+		{E3C10726-956A-4E06-8573-A0012F82B6A4} = {C4389B09-C096-49FB-9994-865FBCFF96B2}
+		{F2A06E14-AFA5-468A-9C6A-4CD01204EB9D} = {C4389B09-C096-49FB-9994-865FBCFF96B2}
+		{C4D22C4A-B740-4213-866C-72E983072BFF} = {C4389B09-C096-49FB-9994-865FBCFF96B2}
 	EndGlobalSection
 EndGlobal
