@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using JobSearch.WebAPIHelper.Model;
+using JobSearch.Model;
 using Microsoft.Owin.Security.OAuth;
 namespace JobSearch.Web
 {

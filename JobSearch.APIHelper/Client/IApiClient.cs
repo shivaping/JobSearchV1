@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
-using JobSearch.WebAPIHelper.Model;
-namespace JobSearch.WebAPIHelper.Client
+using JobSearch.Model;
+namespace JobSearch.APIHelper.Client
 {
     public interface IApiClient
     {

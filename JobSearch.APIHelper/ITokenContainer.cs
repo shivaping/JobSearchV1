@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobSearch.WebAPIHelper
+namespace JobSearch.APIHelper
 {
     public interface ITokenContainer
     {

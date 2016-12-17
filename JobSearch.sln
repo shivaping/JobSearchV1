@@ -11,11 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.Web", "JobSearch.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.Web.Tests", "JobSearch.Web.Tests\JobSearch.Web.Tests.csproj", "{F2A06E14-AFA5-468A-9C6A-4CD01204EB9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.WebAPIHelper", "JobSearch.Model\JobSearch.WebAPIHelper.csproj", "{034FF942-909D-4B3C-A90C-6380759EA318}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.Model", "JobSearch.Model\JobSearch.Model.csproj", "{034FF942-909D-4B3C-A90C-6380759EA318}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.WebAPI", "JobSearch.WebAPI\JobSearch.WebAPI.csproj", "{055076AA-8570-47A0-8FDE-6830DE68FD54}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.WebAPI.Tests", "JobSearch.WebAPI.Tests\JobSearch.WebAPI.Tests.csproj", "{C4D22C4A-B740-4213-866C-72E983072BFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.APIHelper", "JobSearch.APIHelper\JobSearch.APIHelper.csproj", "{DC905E41-37A1-4429-A445-31BD5E3A8F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearch.DataAcccess", "JobSearch.DataAcccess\JobSearch.DataAcccess.csproj", "{810E714F-396C-4E72-8945-8258EF8FE5BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{C4D22C4A-B740-4213-866C-72E983072BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4D22C4A-B740-4213-866C-72E983072BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4D22C4A-B740-4213-866C-72E983072BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC905E41-37A1-4429-A445-31BD5E3A8F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC905E41-37A1-4429-A445-31BD5E3A8F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC905E41-37A1-4429-A445-31BD5E3A8F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC905E41-37A1-4429-A445-31BD5E3A8F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810E714F-396C-4E72-8945-8258EF8FE5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810E714F-396C-4E72-8945-8258EF8FE5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810E714F-396C-4E72-8945-8258EF8FE5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810E714F-396C-4E72-8945-8258EF8FE5BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

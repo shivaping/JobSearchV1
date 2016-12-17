@@ -5,9 +5,9 @@ using System.Text;
 using System.Web.Helpers;
 using System.Net.Http;
 using System.Threading.Tasks;
-using JobSearch.WebAPIHelper.Model;
-using JobSearch.WebAPIHelper.Response;
-namespace JobSearch.WebAPIHelper.Client
+using JobSearch.Model;
+using JobSearch.APIHelper.Response;
+namespace JobSearch.APIHelper.Client
 {
     public abstract class ClientBase
     {

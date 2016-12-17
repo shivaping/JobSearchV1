@@ -1,6 +1,6 @@
 ﻿namespace JobSearch.Web.APIFacade.Responses
 {
-    using JobSearch.WebAPIHelper.Response;
+    using JobSearch.APIHelper.Response;
 
     public class TokenResponse : ApiResponse<string>
     {

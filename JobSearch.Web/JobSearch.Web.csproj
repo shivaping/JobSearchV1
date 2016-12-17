@@ -1279,9 +1279,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JobSearch.Model\JobSearch.WebAPIHelper.csproj">
+    <ProjectReference Include="..\JobSearch.APIHelper\JobSearch.APIHelper.csproj">
+      <Project>{dc905e41-37a1-4429-a445-31bd5e3a8f40}</Project>
+      <Name>JobSearch.APIHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobSearch.Model\JobSearch.Model.csproj">
       <Project>{034ff942-909d-4b3c-a90c-6380759ea318}</Project>
-      <Name>JobSearch.WebAPIHelper</Name>
+      <Name>JobSearch.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

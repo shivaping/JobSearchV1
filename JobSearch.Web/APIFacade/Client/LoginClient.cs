@@ -2,9 +2,9 @@ namespace JobSearch.Web.APIFacade.Client
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using JobSearch.WebAPIHelper.Client;
-    using JobSearch.WebAPIHelper.Model;
-    using JobSearch.WebAPIHelper.Response;
+    using JobSearch.APIHelper.Client;
+    using JobSearch.Model;
+    using JobSearch.APIHelper.Response;
     using JobSearch.Web.APIFacade.Responses;
     using JobSearch.Web.APIFacade.ApiModels;
     public class LoginClient : ClientBase, ILoginClient

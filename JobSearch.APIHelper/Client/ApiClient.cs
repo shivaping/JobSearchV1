@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using JobSearch.WebAPIHelper.Model;
+using JobSearch.Model;
 using System.Web.Script.Serialization;
-namespace JobSearch.WebAPIHelper.Client
+namespace JobSearch.APIHelper.Client
 {
     public class ApiClient : IApiClient
     {

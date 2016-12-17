@@ -1,6 +1,6 @@
 ﻿namespace JobSearch.Web.APIFacade.ApiModels
 {
-    using JobSearch.WebAPIHelper.Model;
+    using JobSearch.Model;
 
     public class RegisterApiModel : ApiModel
     {

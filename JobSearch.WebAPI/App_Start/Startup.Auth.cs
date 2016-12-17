@@ -9,7 +9,7 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using JobSearch.WebAPI.Providers;
-using JobSearch.WebAPIHelper.Model;
+using JobSearch.Model;
 
 namespace JobSearch.WebAPI
 {

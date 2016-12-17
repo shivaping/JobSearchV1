@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobSearch.WebAPIHelper.Model
+namespace JobSearch.Model
 {
     public abstract class ApiModel
     {

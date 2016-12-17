@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace JobSearch.WebAPIHelper.Model
+namespace JobSearch.Model
 {
     public class ExternalLoginConfirmationViewModel
     {

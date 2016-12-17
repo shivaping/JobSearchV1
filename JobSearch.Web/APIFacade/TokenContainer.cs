@@ -1,7 +1,7 @@
 ﻿namespace JobSearch.Web.APIFacade
 {
     using System.Web;
-    using JobSearch.WebAPIHelper;
+    using JobSearch.APIHelper;
 
     public class TokenContainer : ITokenContainer
     {

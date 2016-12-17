@@ -1,4 +1,4 @@
-﻿using JobSearch.WebAPIHelper.Response;
+﻿using JobSearch.APIHelper.Response;
 
 namespace JobSearch.Web.APIFacade.Responses
 {

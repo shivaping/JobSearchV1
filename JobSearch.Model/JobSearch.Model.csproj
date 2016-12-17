@@ -7,8 +7,8 @@
     <ProjectGuid>{034FF942-909D-4B3C-A90C-6380759EA318}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JobSearch.WebAPIHelper</RootNamespace>
-    <AssemblyName>JobSearch.WebAPIHelper</AssemblyName>
+    <RootNamespace>JobSearch.Model</RootNamespace>
+    <AssemblyName>JobSearch.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -107,17 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\ApiClient.cs" />
-    <Compile Include="Client\ClientBase.cs" />
-    <Compile Include="Client\IApiClient.cs" />
-    <Compile Include="ITokenContainer.cs" />
     <Compile Include="Model\AccountViewModels.cs" />
     <Compile Include="Model\ApiModel.cs" />
     <Compile Include="Model\IdentityModels.cs" />
     <Compile Include="Model\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Response\ApiResponse.cs" />
-    <Compile Include="Response\ErrorStateResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,7 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using JobSearch.WebAPIHelper.Model;
+using JobSearch.Model;
 using JobSearch.WebAPI.Providers;
 using JobSearch.WebAPI.Results;
 

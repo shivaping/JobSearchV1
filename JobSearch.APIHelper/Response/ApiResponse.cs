@@ -1,4 +1,4 @@
-﻿namespace JobSearch.WebAPIHelper.Response
+﻿namespace JobSearch.APIHelper.Response
 {
     using System.Net;
 
