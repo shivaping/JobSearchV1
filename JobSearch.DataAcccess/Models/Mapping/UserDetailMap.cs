@@ -8,10 +8,11 @@ namespace JobSearch.DataAcccess.Models.Mapping
         public UserDetailMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.UserID);
 
             // Properties
             this.Property(t => t.UserID)
+                .IsRequired()
                 .HasMaxLength(128);
 
             this.Property(t => t.Address1)
@@ -28,9 +29,24 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.State)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            this.Property(t => t.Country)
+                .IsRequired()
+                .HasMaxLength(50);
+
             this.Property(t => t.Gender)
                 .IsFixedLength()
                 .HasMaxLength(10);
+
+            this.Property(t => t.Phone)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            this.Property(t => t.Fax)
+                .HasMaxLength(50);
 
             this.Property(t => t.Email)
                 .IsRequired()
@@ -44,7 +60,6 @@ namespace JobSearch.DataAcccess.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("UserDetail");
-            this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.UserID).HasColumnName("UserID");
             this.Property(t => t.Address1).HasColumnName("Address1");
             this.Property(t => t.Address2).HasColumnName("Address2");

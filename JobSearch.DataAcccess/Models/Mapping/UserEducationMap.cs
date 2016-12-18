@@ -35,6 +35,12 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.Specialization).HasColumnName("Specialization");
             this.Property(t => t.Institute).HasColumnName("Institute");
             this.Property(t => t.Year).HasColumnName("Year");
+
+            // Relationships
+            this.HasRequired(t => t.UserDetail)
+                .WithMany(t => t.UserEducations)
+                .HasForeignKey(d => d.UserID);
+
         }
     }
 }

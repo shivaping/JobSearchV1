@@ -26,6 +26,10 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.Resume)
                 .IsRequired();
 
+            this.Property(t => t.CurrentLocation)
+                .IsRequired()
+                .HasMaxLength(255);
+
             this.Property(t => t.PreferredLocation)
                 .IsRequired()
                 .HasMaxLength(255);
@@ -54,6 +58,12 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.Experience).HasColumnName("Experience");
             this.Property(t => t.CurrentCtc).HasColumnName("CurrentCtc");
             this.Property(t => t.Active).HasColumnName("Active");
+
+            // Relationships
+            this.HasRequired(t => t.UserDetail)
+                .WithMany(t => t.UserResumes)
+                .HasForeignKey(d => d.UserID);
+
         }
     }
 }

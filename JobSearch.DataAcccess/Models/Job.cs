@@ -5,6 +5,11 @@ namespace JobSearch.DataAcccess.Models
 {
     public partial class Job
     {
+        public Job()
+        {
+            this.UserJobs = new List<UserJob>();
+        }
+
         public int ID { get; set; }
         public string Location { get; set; }
         public string JobTitle { get; set; }
@@ -23,6 +28,7 @@ namespace JobSearch.DataAcccess.Models
         public Nullable<int> JobType { get; set; }
         public Nullable<System.DateTime> PostedDate { get; set; }
         public virtual JobType JobType1 { get; set; }
-        public virtual UserJob UserJob { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
+        public virtual ICollection<UserJob> UserJobs { get; set; }
     }
 }

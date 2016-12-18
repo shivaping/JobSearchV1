@@ -27,6 +27,9 @@ namespace JobSearch.DataAcccess.Models.Mapping
             // Relationships
             this.HasRequired(t => t.Skill)
                 .WithOptional(t => t.UserSkill);
+            this.HasRequired(t => t.UserDetail)
+                .WithMany(t => t.UserSkills)
+                .HasForeignKey(d => d.UserID);
 
         }
     }

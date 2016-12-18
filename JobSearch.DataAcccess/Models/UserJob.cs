@@ -18,6 +18,7 @@ namespace JobSearch.DataAcccess.Models
         public string UserExp { get; set; }
         public Nullable<System.DateTime> LastUpdate { get; set; }
         public virtual Job Job { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
         public virtual UserResume UserResume { get; set; }
     }
 }

@@ -9,5 +9,6 @@ namespace JobSearch.DataAcccess.Models
         public string UserID { get; set; }
         public int SkillID { get; set; }
         public virtual Skill Skill { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
     }
 }
