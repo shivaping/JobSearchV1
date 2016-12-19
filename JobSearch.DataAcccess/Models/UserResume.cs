@@ -5,11 +5,6 @@ namespace JobSearch.DataAcccess.Models
 {
     public partial class UserResume
     {
-        public UserResume()
-        {
-            this.UserJobs = new List<UserJob>();
-        }
-
         public int ID { get; set; }
         public string UserID { get; set; }
         public string ResumeTitle { get; set; }
@@ -24,6 +19,5 @@ namespace JobSearch.DataAcccess.Models
         public decimal CurrentCtc { get; set; }
         public bool Active { get; set; }
         public virtual UserDetail UserDetail { get; set; }
-        public virtual ICollection<UserJob> UserJobs { get; set; }
     }
 }

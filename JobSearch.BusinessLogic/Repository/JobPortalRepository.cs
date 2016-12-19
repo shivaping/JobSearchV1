@@ -18,8 +18,11 @@ namespace JobSearch.BusinessLogic.Repository
 
         public UserDetail GetUserDetail(string userID)
         {
-            UserDetail returnValue = null;
-            returnValue = context.UserDetails.Where(p => p.UserID == userID).FirstOrDefault();
+            UserDetail returnValue = context.UserDetails.Find(userID);
+            context.Entry(returnValue).Collection(p => p.UserResumes).Load();
+            //context.UserDetails.Include("UserDetail.UserResumes");
+            //context.Entry(UserDetail).Reference(p=>p.)
+          
             return returnValue;
         }
 
