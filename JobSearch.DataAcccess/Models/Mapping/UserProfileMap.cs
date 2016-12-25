@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace JobSearch.DataAcccess.Models.Mapping
 {
-    public class UserResumeMap : EntityTypeConfiguration<UserResume>
+    public class UserProfileMap : EntityTypeConfiguration<UserProfile>
     {
-        public UserResumeMap()
+        public UserProfileMap()
         {
             // Primary Key
             this.HasKey(t => t.ID);
@@ -15,11 +15,11 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(128);
 
-            this.Property(t => t.ResumeTitle)
+            this.Property(t => t.ProfileTitle)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.ResumeDescription)
+            this.Property(t => t.ProfileDescription)
                 .IsRequired()
                 .HasMaxLength(255);
 
@@ -43,12 +43,23 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .IsFixedLength()
                 .HasMaxLength(10);
 
+            this.Property(t => t.Email)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            this.Property(t => t.Name)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            this.Property(t => t.PhoneNumber)
+                .HasMaxLength(50);
+
             // Table & Column Mappings
-            this.ToTable("UserResume");
+            this.ToTable("UserProfile");
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.UserID).HasColumnName("UserID");
-            this.Property(t => t.ResumeTitle).HasColumnName("ResumeTitle");
-            this.Property(t => t.ResumeDescription).HasColumnName("ResumeDescription");
+            this.Property(t => t.ProfileTitle).HasColumnName("ProfileTitle");
+            this.Property(t => t.ProfileDescription).HasColumnName("ProfileDescription");
             this.Property(t => t.Resume).HasColumnName("Resume");
             this.Property(t => t.CurrentLocation).HasColumnName("CurrentLocation");
             this.Property(t => t.PreferredLocation).HasColumnName("PreferredLocation");
@@ -58,10 +69,13 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.Experience).HasColumnName("Experience");
             this.Property(t => t.CurrentCtc).HasColumnName("CurrentCtc");
             this.Property(t => t.Active).HasColumnName("Active");
+            this.Property(t => t.Email).HasColumnName("Email");
+            this.Property(t => t.Name).HasColumnName("Name");
+            this.Property(t => t.PhoneNumber).HasColumnName("PhoneNumber");
 
             // Relationships
             this.HasRequired(t => t.UserDetail)
-                .WithMany(t => t.UserResumes)
+                .WithMany(t => t.UserProfiles)
                 .HasForeignKey(d => d.UserID);
 
         }

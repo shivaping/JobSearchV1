@@ -31,6 +31,7 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.ToTable("UserEducation");
             this.Property(t => t.User_Education_Id).HasColumnName("User_Education_Id");
             this.Property(t => t.UserID).HasColumnName("UserID");
+            this.Property(t => t.ProfileID).HasColumnName("ProfileID");
             this.Property(t => t.Qualification).HasColumnName("Qualification");
             this.Property(t => t.Specialization).HasColumnName("Specialization");
             this.Property(t => t.Institute).HasColumnName("Institute");
@@ -40,6 +41,9 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.HasRequired(t => t.UserDetail)
                 .WithMany(t => t.UserEducations)
                 .HasForeignKey(d => d.UserID);
+            this.HasRequired(t => t.UserProfile)
+                .WithMany(t => t.UserEducations)
+                .HasForeignKey(d => d.ProfileID);
 
         }
     }

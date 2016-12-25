@@ -10,7 +10,7 @@ namespace JobSearch.DataAcccess.Models
             this.Jobs = new List<Job>();
             this.UserEducations = new List<UserEducation>();
             this.UserJobs = new List<UserJob>();
-            this.UserResumes = new List<UserResume>();
+            this.UserProfiles = new List<UserProfile>();
             this.UserSkills = new List<UserSkill>();
         }
 
@@ -34,7 +34,7 @@ namespace JobSearch.DataAcccess.Models
         public virtual ICollection<Job> Jobs { get; set; }
         public virtual ICollection<UserEducation> UserEducations { get; set; }
         public virtual ICollection<UserJob> UserJobs { get; set; }
-        public virtual ICollection<UserResume> UserResumes { get; set; }
+        public virtual ICollection<UserProfile> UserProfiles { get; set; }
         public virtual ICollection<UserSkill> UserSkills { get; set; }
     }
 }

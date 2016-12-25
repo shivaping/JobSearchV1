@@ -97,11 +97,11 @@ app.controller('ngcontroller', function ($scope, ngservice) {
     }
     $scope.login = function () {
 
-        var userInfo = {
-            email: "shiva.koundinya@gmail.com",
-            password: "Moukhthi@9",
-            grant_type: "password"
-        };
+        //var userInfo = {
+        //    email: "shiva.koundinya@gmail.com",
+        //    password: "Moukhthi@9",
+        //    grant_type: "password"
+        //};
         
         ngservice.login(userInfo).success(function (response) {
 

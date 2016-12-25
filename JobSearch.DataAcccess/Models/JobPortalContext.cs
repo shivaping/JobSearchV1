@@ -24,7 +24,7 @@ namespace JobSearch.DataAcccess.Models
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<UserEducation> UserEducations { get; set; }
         public DbSet<UserJob> UserJobs { get; set; }
-        public DbSet<UserResume> UserResumes { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<UserSkill> UserSkills { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace JobSearch.DataAcccess.Models
             modelBuilder.Configurations.Add(new UserDetailMap());
             modelBuilder.Configurations.Add(new UserEducationMap());
             modelBuilder.Configurations.Add(new UserJobMap());
-            modelBuilder.Configurations.Add(new UserResumeMap());
+            modelBuilder.Configurations.Add(new UserProfileMap());
             modelBuilder.Configurations.Add(new UserSkillMap());
         }
     }

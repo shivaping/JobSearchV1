@@ -7,10 +7,12 @@ namespace JobSearch.DataAcccess.Models
     {
         public int User_Education_Id { get; set; }
         public string UserID { get; set; }
+        public int ProfileID { get; set; }
         public string Qualification { get; set; }
         public string Specialization { get; set; }
         public string Institute { get; set; }
         public int Year { get; set; }
         public virtual UserDetail UserDetail { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

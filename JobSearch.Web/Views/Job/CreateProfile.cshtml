@@ -18,7 +18,10 @@
                 <!-- END BREADCRUMBS -->
                 <!-- LOGIN BOX -->
                 <div class="row">
-                    <form class="form-horizontal margin-bottom-50px form-billing-shipping" id="form2" data-parsley-validate novalidate role="form">
+                    @*<form class="form-horizontal margin-bottom-50px form-billing-shipping" id="form2" data-parsley-validate novalidate role="form">*@
+@using (Html.BeginForm("createprofile", "job", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", name = "form" }))
+{
+    @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="billing-address">
@@ -27,7 +30,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="name" class="control-label sr-only">Profile Name</label>
-                                                <input type="text" class="form-control" id="name" placeholder="Profile Name" required>
+                                                <input type="text" class="form-control" id="name" placeholder="Profile Name" required ng-model="userData.ProfileName"  name="ProfileName">
                                             </div>
 
                                             <div class="form-group">
@@ -96,20 +99,20 @@
                                         <div class="row" style="padding-top:5px">
                                             <div style="padding-left:10px; float:left">
                                                 <label for="qualification" class="control-label sr-only">Qualification</label>
-                                                <input type="text" class="form-control" id="qualification" placeholder="Qualification" required>
+                                                <input type="text" class="form-control" id="qualification" placeholder="Qualification" required name="Qualification">
                                             </div>
                                             <div style="padding-left:10px; float:left">
                                                 <label for="specialization" class="control-label sr-only">Specialization</label>
-                                                <input type="text" class="form-control" id="specialization" placeholder="Specialization">
+                                                <input type="text" class="form-control" id="specialization" placeholder="Specialization"  name="specialization">
                                             </div>
                                             <div style="padding-left:10px; float:left">
                                                 <label for="institute" class="control-label sr-only">Institute</label>
-                                                <input type="text" class="form-control" id="institute" placeholder="Institute/University">
+                                                <input type="text" class="form-control" id="institute" placeholder="Institute/University" name="institute">
                                             </div>
                                             <div style="padding-left:10px; float:left">
                                                 <div style="float:left">
                                                     <label for="year" class="control-label sr-only">Year</label>
-                                                    <input type="text" class="form-control" id="year" placeholder="Year">
+                                                    <input type="text" class="form-control" id="year" placeholder="Year" name="year">
                                                 </div>
                                                 <div style="float:left;padding-left:5px">
                                                     <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
@@ -154,11 +157,11 @@
                                 </div>
                                 <div class="row">
 
-                                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-block register-box" ><i class="fa fa-check-circle"></i> Create Profile</button>
+                                    <button type="submit" class="btn btn-primary btn-block register-box" ><i class="fa fa-check-circle"></i> Create Profile</button>
 
                                 </div>
                                 <div class="clearfix"></div>
-                    </form>
+                    @*</form>*@}
                 </div>
                 <!-- END LOGIN BOX -->
             </div>

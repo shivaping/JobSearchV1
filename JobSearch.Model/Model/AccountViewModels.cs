@@ -135,7 +135,15 @@ namespace JobSearch.Model
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
+    public class SampleModel
+    {
+        [Required]
+        [Display(Name = "ProfileName")]
+        
+        public string ProfileName { get; set; }
 
+     
+    }
     public class RegisterViewModel
     {
         [Required]
