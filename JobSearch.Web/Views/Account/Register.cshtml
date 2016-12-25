@@ -21,7 +21,10 @@
                     <div class="col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2">
                         <div class="account-box login-box">
                             <h1>Create an account</h1>
-                            <form class="form-horizontal" ng-submit="register(userData)" role="form" name="form">
+                            @*<form class="form-horizontal" ng-submit="register(userData)" role="form" name="form">*@
+                            @using (Html.BeginForm("register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", name = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
                                 <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && (form.email.$error.required || form.email.$error.email)  }">
                                     <label for="email" class="control-label sr-only">Email</label>
                                     <div class="col-sm-12">
@@ -83,7 +86,8 @@
                                         <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-block"><i class="fa fa-check-circle"></i> Create Account</button>
                                     </div>
                                 </div>
-                            </form>
+                                @*</form>*@
+                            }
                             <p><em>Already have an account?</em> <a href="~/account/login/"><strong>Login</strong></a></p>
                         </div>
                     </div>

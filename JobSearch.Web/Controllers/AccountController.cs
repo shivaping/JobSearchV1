@@ -30,36 +30,7 @@ namespace JobSearch.Web.Controllers
             loginClient = new LoginClient(apiClient);
         }
 
-        //public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
-        //{
-        //    UserManager = userManager;
-        //    SignInManager = signInManager;
-        //}
-
-        //public ApplicationSignInManager SignInManager
-        //{
-        //    get
-        //    {
-        //        return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-        //    }
-        //    private set
-        //    {
-        //        _signInManager = value;
-        //    }
-        //}
-
-        //public ApplicationUserManager UserManager
-        //{
-        //    get
-        //    {
-        //        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    }
-        //    private set
-        //    {
-        //        _userManager = value;
-        //    }
-        //}
-
+      
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -68,7 +39,12 @@ namespace JobSearch.Web.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
+        [AllowAnonymous]
+        public ActionResult Register(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
         //
         // POST: /Account/Login
         [HttpPost]
@@ -84,22 +60,13 @@ namespace JobSearch.Web.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var loginSuccess = await PerformLoginActions(model.Email, model.Password);
-         
-            return RedirectToLocal(returnUrl);
-            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            //switch (result)
-            //{
-            //    case SignInStatus.Success:
-            //        return RedirectToLocal(returnUrl);
-            //    case SignInStatus.LockedOut:
-            //        return View("Lockout");
-            //    case SignInStatus.RequiresVerification:
-            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-            //    case SignInStatus.Failure:
-            //    default:
-            //        ModelState.AddModelError("", "Invalid login attempt.");
-            //        return View(model);
-            //}
+            if (loginSuccess)
+                return RedirectToLocal(returnUrl);
+            else
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
         }
         private async Task<bool> PerformLoginActions(string email, string password)
         {
@@ -108,20 +75,11 @@ namespace JobSearch.Web.Controllers
             {
                 tokenContainer.ApiToken = response.Data;
                 tokenContainer.UserName = email;
-                //Microsoft.Owin.Security.DataProtection.IDataProtector
-
-                // string AccessToken = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(await response.Content.ReadAsStringAsync());
-                /*Get Access Token End*/
-
-
+               
                 var ticket = Startup.OAuthBearerOptions.AccessTokenFormat.Unprotect(response.Data);
                 var id = new ClaimsIdentity(ticket.Identity.Claims, DefaultAuthenticationTypes.ApplicationCookie);
                 AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = true }, id);
-                
-                //return RedirectToLocal(returnUrl);
-
             }
-            
             return response.StatusIsSuccessful;
         }
         ////
@@ -176,34 +134,29 @@ namespace JobSearch.Web.Controllers
         //}
 
         ////
-        //// POST: /Account/Register
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Register(RegisterViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-        //        var result = await UserManager.CreateAsync(user, model.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-        //            // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-        //            // Send an email with this link
-        //            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-        //            // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-        //            // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(RegisterViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await loginClient.Register(model);
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
 
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        AddErrors(result);
-        //    }
-
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
+                if (result.StatusIsSuccessful)
+                {
+                    var loginSuccess = await PerformLoginActions(model.Email, model.Password);
+                    if (loginSuccess)
+                        return RedirectToLocal(returnUrl);
+                }
+                else
+                    ModelState.AddModelError("", "Invalid login attempt.");
+            }
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
 
         ////
         //// GET: /Account/ConfirmEmail

@@ -48,4 +48,35 @@ namespace JobSearch.BusinessLogic.Repository
             return returnValue;
         }
     }
+    public interface IUnitOfWork
+    {
+        IJobPortalRepository IRepository { get; }
+        void Save();
+    }
+
+    public class UnitOfWork : IDisposable, IUnitOfWork
+    {
+        readonly JobPortalContext _context = new JobPortalContext();
+        IJobPortalRepository _IJobPortalRepository;
+        
+        public IJobPortalRepository IRepository
+        {
+            get { return _IJobPortalRepository ?? (_IJobPortalRepository = new JobPortalRepository(_context)); }
+        }
+
+        public void Dispose()
+        {
+            if (_context != null)
+            {
+                _context.Dispose();
+            }
+        }
+
+        void IUnitOfWork.Save()
+        {
+            _context.SaveChanges();
+        }
+
+       
+    }
 }

@@ -54,9 +54,15 @@ app.service('ngservice', function ($http) {
 app.controller('ngcontroller', function ($scope, ngservice) {
    
     $scope.filterValue = ""; //The object used to read value entered into textbox for filtering information from table
-
-    
-
+    $scope.education = [{ id: 'education1' }];
+    $scope.addNewChoice = function () {
+        var newItemNo = $scope.education.length + 1;
+        $scope.education.push({ 'id': 'choice' + newItemNo });
+    };
+    $scope.removeChoice = function () {
+        var lastItem = $scope.education.length - 1;
+        $scope.education.splice(lastItem);
+    };
     //Function  to Load all jobs
     function loadOrders() {
         var promise = ngservice.getOrders();

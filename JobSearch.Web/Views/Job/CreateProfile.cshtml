@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "CreateProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="account-box login-box box-with-help">
+        <div data-ng-app="ngmodule">
+            <div data-ng-controller="ngcontroller">
+                <!-- BREADCRUMBS -->
+                <ol class="breadcrumb link-accent separator-arrow">
+                    <li><a href="~/" title="Home"><i class="fa fa-home"></i></a></li>
+                    <li class="active">Create Profile</li>
+                </ol>
+                <!-- END BREADCRUMBS -->
+                <!-- LOGIN BOX -->
+                <div class="row">
+                    <form class="form-horizontal margin-bottom-50px form-billing-shipping" id="form2" data-parsley-validate novalidate role="form">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="billing-address">
+                                    <h3>Contact Details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name" class="control-label sr-only">Profile Name</label>
+                                                <input type="text" class="form-control" id="name" placeholder="Profile Name" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="currentlocation" class="control-label sr-only">Current Location</label>
+                                                <input type="text" class="form-control" id="currentlocation" placeholder="Current Location">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="emailaddress" class="control-label sr-only">Email Address</label>
+                                                <input type="text" class="form-control" id="emailaddress" placeholder="Email Address" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone" class="control-label sr-only">Phone</label>
+                                                <input type="text" class="form-control" id="phone" placeholder="Phone">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="shipping-address">
+                                    <h3>Professional Details</h3>
+                                    <div id="shipping-inputs" class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="expYears" class="control-label sr-only">Experience Years</label>
+                                                <input type="text" class="form-control" id="expYears" placeholder="Experience Years" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="currentIndustry" class="control-label sr-only">Current Industry</label>
+                                                <input type="text" class="form-control" id="currentIndustry" placeholder="Current Industry" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="expMonths" class="control-label sr-only">Experience Months</label>
+                                                <input type="text" class="form-control" id="expMonths" placeholder="Experience Months">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="functionalArea" class="control-label sr-only">Functional Area</label>
+                                                <input type="text" class="form-control" id="functionalArea" placeholder="Functional Area">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="shipping-inputs" class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="keySkills" class="control-label sr-only">Key Skills</label>
+                                                <input type="text" class="form-control" id="keySkills" placeholder="Key Skills">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="billing-address">
+                                    <h3>Education Details</h3>
+                                    <fieldset data-ng-repeat="edu in education">
+                                        <div class="row" style="padding-top:5px">
+                                            <div style="padding-left:10px; float:left">
+                                                <label for="qualification" class="control-label sr-only">Qualification</label>
+                                                <input type="text" class="form-control" id="qualification" placeholder="Qualification" required>
+                                            </div>
+                                            <div style="padding-left:10px; float:left">
+                                                <label for="specialization" class="control-label sr-only">Specialization</label>
+                                                <input type="text" class="form-control" id="specialization" placeholder="Specialization">
+                                            </div>
+                                            <div style="padding-left:10px; float:left">
+                                                <label for="institute" class="control-label sr-only">Institute</label>
+                                                <input type="text" class="form-control" id="institute" placeholder="Institute/University">
+                                            </div>
+                                            <div style="padding-left:10px; float:left">
+                                                <div style="float:left">
+                                                    <label for="year" class="control-label sr-only">Year</label>
+                                                    <input type="text" class="form-control" id="year" placeholder="Year">
+                                                </div>
+                                                <div style="float:left;padding-left:5px">
+                                                    <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding:10px">
+                                <button class="addfields" ng-click="addNewChoice()">Add fields</button>
+
+                            </div>
+                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="billing-address">
+                                            <h3>Resume</h3>
+                                            <div id="shipping-inputs">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="resumePath" class="control-label sr-only">Resume Path</label>
+                                                        <input type="text" class="form-control" id="resumePath" placeholder="Resume Path" readonly="readonly">
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <button class="addResume">Upload Resume</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-block register-box" ><i class="fa fa-check-circle"></i> Create Profile</button>
+
+                                </div>
+                                <div class="clearfix"></div>
+                    </form>
+                </div>
+                <!-- END LOGIN BOX -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,3 +24,7 @@ authorization : bearer XLZXjoFqZZPHNDTWpUKFX-9E2hk2nSRKQkECzEW-ASO-h-xwaDQyjzP2r
 http://stackoverflow.com/questions/25071817/owin-bearer-token-authentication-authorize-controller/26573873#26573873
 
 https://www.asp.net/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
+
+http://maps.googleapis.com/maps/api/geocode/json?address=karimnagar
+
+http://www.shanidkv.com/blog/angularjs-adding-form-fields-dynamically

@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1265,6 +1266,9 @@
     <Content Include="Views\Partial\Footer.cshtml" />
     <Content Include="Views\Partial\Header.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Job\CreateProfile.cshtml" />
+    <Content Include="Views\Job\PostJob.cshtml" />
+    <Content Include="Views\Job\ApplyJob.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,7 +22,7 @@
         <div class="col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2">
             <div class="account-box login-box box-with-help">
                 <h1>Log in to your account</h1>
-@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" , name = "form" }))
+@using (Html.BeginForm("login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" , name = "form" }))
 {
     @Html.AntiForgeryToken()
                 @*<form class="form-horizontal" ng-submit="login(userData)" role="form" name="form">*@

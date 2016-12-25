@@ -55,8 +55,7 @@ app.controller('ngcontroller', function ($scope, ngservice) {
    
     $scope.filterValue = ""; //The object used to read value entered into textbox for filtering information from table
 
-    
-
+   
     //Function  to Load all jobs
     function loadOrders() {
         var promise = ngservice.getOrders();
