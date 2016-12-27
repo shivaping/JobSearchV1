@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using JobSearch.Model;
+using System.Net.Http;
+
 namespace JobSearch.Web.Controllers
 {
     public class JobController : Controller
@@ -12,6 +14,9 @@ namespace JobSearch.Web.Controllers
         // GET: Job
         public ActionResult CreateProfile()
         {
+            var client = new HttpClient();
+            // var response = await client.GetAsync("http://yourapi.com/api/products");
+
             return View();
         }
         [HttpPost]

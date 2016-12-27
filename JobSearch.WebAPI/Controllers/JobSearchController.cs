@@ -13,20 +13,22 @@ namespace JobSearch.WebAPI.Controllers
     [RoutePrefix("api/jobsearch")]
     public class JobSearchController : ApiController
     {
-        private IJobPortalRepository _IJobPortalRepository;
+        private readonly IJobPortalRepository portalRepository;
+        private readonly IUnitOfWork portalUnitOfWork;
         public JobSearchController()
         {
-            _IJobPortalRepository = new JobPortalRepository(new DataAcccess.Models.JobPortalContext());
+            
         }
-        public JobSearchController(IJobPortalRepository IJobPortalRepository)
+        public JobSearchController(IJobPortalRepository _IJobPortalRepository, IUnitOfWork _IUnitOfWork)
         {
-            _IJobPortalRepository = IJobPortalRepository;
+            portalRepository = _IJobPortalRepository;
+            this.portalUnitOfWork = _IUnitOfWork;
         }
         [Authorize]
         [Route("UserDetails")]
         public HttpResponseMessage GetUserDetail()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new { UserDetails = _IJobPortalRepository.GetUserDetail(User.Identity.GetUserId()) });
+            return Request.CreateResponse(HttpStatusCode.OK, new { UserDetails = portalRepository.GetUserDetail(User.Identity.GetUserId()) });
             
         }
         //// Get all orders
