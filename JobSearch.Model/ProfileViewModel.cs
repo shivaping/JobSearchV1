@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,7 @@ namespace JobSearch.Model
         public List<SkillViewModel> SkillViewModel { get; set; }
         public List<EducationViewModel> EducationViewModel { get; set; }
 
+        [NotMapped]
         [DataType(DataType.Upload)]
         [Display(Name = "Choose Resume File")]
         [FileExtensions(Extensions = ".pdf,.doc,.docx")]
