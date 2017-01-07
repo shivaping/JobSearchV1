@@ -49,13 +49,18 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.City).HasColumnName("City");
             this.Property(t => t.State).HasColumnName("State");
             this.Property(t => t.Country).HasColumnName("Country");
-            this.Property(t => t.Education_LevelID).HasColumnName("Education_LevelID");
             this.Property(t => t.JobTypeId).HasColumnName("JobTypeId");
             this.Property(t => t.MinSalary).HasColumnName("MinSalary");
             this.Property(t => t.MaxSalary).HasColumnName("MaxSalary");
             this.Property(t => t.JobDescription).HasColumnName("JobDescription");
             this.Property(t => t.PostingDate).HasColumnName("PostingDate");
             this.Property(t => t.PostedBy).HasColumnName("PostedBy");
+
+            // Relationships
+            this.HasRequired(t => t.UserDetail)
+                .WithMany(t => t.EmployerPostings)
+                .HasForeignKey(d => d.PostedBy);
+
         }
     }
 }

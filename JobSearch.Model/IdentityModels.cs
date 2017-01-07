@@ -36,5 +36,11 @@ namespace JobSearch.Model
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<JobSearch.Model.ProfileViewModel> ProfileViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<JobSearch.Model.SkillViewModel> SkillModels { get; set; }
+
+        public System.Data.Entity.DbSet<JobSearch.Model.EducationViewModel> EducationModels { get; set; }
     }
 }

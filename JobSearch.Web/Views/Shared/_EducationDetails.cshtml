@@ -1,0 +1,35 @@
+﻿@model IEnumerable<JobSearch.Model.EducationViewModel>
+
+@foreach (var item in Model)
+{
+    <div class="billing-address">
+        <h3>Education Details</h3>
+        <fieldset data-ng-repeat="edu in education">
+            <div class="row" style="padding-top:5px">
+                <div style="padding-left:10px; float:left">
+                    @Html.EditorFor(modelItem => item.Qualification , new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(modelItem => item.Qualification) } })
+                    @Html.ValidationMessageFor(modelItem => item.Qualification, "", new { @class = "text-danger"})
+                </div>
+                <div style="padding-left:10px; float:left">
+                    @Html.EditorFor(modelItem => item.Specialization , new { htmlAttributes = new { @class = "form-control" , @placeholder = Html.DisplayFor(modelItem => item.Specialization)} })
+                    @Html.ValidationMessageFor(modelItem => item.Specialization, "", new { @class = "text-danger" })
+                </div>
+                <div style="padding-left:10px; float:left">
+                    @Html.EditorFor(modelItem => item.Institute , new { htmlAttributes = new { @class = "form-control" , @placeholder = Html.DisplayFor(modelItem => item.Institute) } })
+                    @Html.ValidationMessageFor(modelItem => item.Institute, "", new { @class = "text-danger" })
+                </div>
+                <div style="padding-left:10px; float:left">
+                    <div style="float:left">
+                        @Html.EditorFor(modelItem => item.Year , new { htmlAttributes = new { @class = "form-control"  , @placeholder = Html.DisplayFor(modelItem => item.Year)} })
+                        @Html.ValidationMessageFor(modelItem => item.Year, "", new { @class = "text-danger" })
+                    </div>
+                    <div style="float:left;padding-left:5px">
+                        <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+}
+<button class="addfields" ng-click="addNewChoice()" type="button">Add fields</button>

@@ -15,7 +15,7 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(128);
 
-            this.Property(t => t.ProfileTitle)
+            this.Property(t => t.ProfileName)
                 .IsRequired()
                 .HasMaxLength(50);
 
@@ -47,10 +47,6 @@ namespace JobSearch.DataAcccess.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(255);
 
-            this.Property(t => t.Name)
-                .IsRequired()
-                .HasMaxLength(255);
-
             this.Property(t => t.PhoneNumber)
                 .HasMaxLength(50);
 
@@ -58,7 +54,7 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.ToTable("UserProfile");
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.UserID).HasColumnName("UserID");
-            this.Property(t => t.ProfileTitle).HasColumnName("ProfileTitle");
+            this.Property(t => t.ProfileName).HasColumnName("ProfileName");
             this.Property(t => t.ProfileDescription).HasColumnName("ProfileDescription");
             this.Property(t => t.Resume).HasColumnName("Resume");
             this.Property(t => t.CurrentLocation).HasColumnName("CurrentLocation");
@@ -70,7 +66,6 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.CurrentCtc).HasColumnName("CurrentCtc");
             this.Property(t => t.Active).HasColumnName("Active");
             this.Property(t => t.Email).HasColumnName("Email");
-            this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.PhoneNumber).HasColumnName("PhoneNumber");
 
             // Relationships

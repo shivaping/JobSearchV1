@@ -73,7 +73,6 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.Email).HasColumnName("Email");
             this.Property(t => t.Secondary_Email).HasColumnName("Secondary_Email");
             this.Property(t => t.Website).HasColumnName("Website");
-            this.Property(t => t.Profile).HasColumnName("Profile");
             this.Property(t => t.Married).HasColumnName("Married");
             this.Property(t => t.Created_Date).HasColumnName("Created_Date");
             this.Property(t => t.Updated_Date).HasColumnName("Updated_Date");

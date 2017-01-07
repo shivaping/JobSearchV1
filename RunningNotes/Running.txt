@@ -28,3 +28,18 @@ https://www.asp.net/mvc/overview/older-versions/getting-started-with-ef-5-using-
 http://maps.googleapis.com/maps/api/geocode/json?address=karimnagar
 
 http://www.shanidkv.com/blog/angularjs-adding-form-fields-dynamically
+
+https://github.com/jagdeep-singh/angularMultipleSelect
+
+
+http://cpratt.co/file-uploads-in-asp-net-mvc-with-view-models/
+
+
+
+  byte[] uploadedFile = new byte[collection.FileUpload.InputStream.Length];
+                collection.FileUpload.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+       //         return File(
+       //uploadedFile, System.Net.Mime.MediaTypeNames.Application.Octet, collection.FileUpload.FileName);
+	   
+	   
+	   file uploadedFile http://bootsnipp.com/snippets/Rl08A

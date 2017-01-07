@@ -1,12 +1,38 @@
 ﻿@model JobSearch.Model.ProfileViewModel
-
 @{
     ViewBag.Title = "CreateProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
+    $(function () {
 
+        // We can attach the `fileselect` event to all file inputs on the page
+        $(document).on('change', ':file', function () {
+            var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [numFiles, label]);
+        });
+
+        // We can watch for our custom `fileselect` event like this
+        $(document).ready(function () {
+            $(':file').on('fileselect', function (event, numFiles, label) {
+
+                var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                if (input.length) {
+                    input.val(log);
+                } else {
+                    if (log) alert(log);
+                }
+
+            });
+        });
+
+    });
+</script>
 <link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
-
 <div class="container">
     <div class="account-box login-box box-with-help">
         <div data-ng-app="ngmodule">
@@ -20,9 +46,11 @@
                 <!-- LOGIN BOX -->
                 <div class="row">
                     @*<form class="form-horizontal margin-bottom-50px form-billing-shipping" id="form2" data-parsley-validate novalidate role="form">*@
-                    @using (Html.BeginForm("createprofile", "user", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", name = "form" }))
+                    @*@using (Html.BeginForm("create", "profile", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", name = "form" }))*@
+                    @using (Html.BeginForm("create", "profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="billing-address">
@@ -34,18 +62,17 @@
                                                 @Html.ValidationMessageFor(model => model.ProfileName, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
-                                                @Html.EditorFor(model => model.ProfileDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.ProfileDescription)} })
+                                                @Html.EditorFor(model => model.ProfileDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.ProfileDescription) } })
                                                 @Html.ValidationMessageFor(model => model.ProfileDescription, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                              
                                                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.Email) } })
                                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
-                                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.PhoneNumber)} })
+                                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.PhoneNumber) } })
                                                 @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -58,24 +85,22 @@
                                     <div id="shipping-inputs" class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.Experience)} })
-                                                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.CurrentLocation, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(model => model.CurrentLocation) } })
+                                                @Html.ValidationMessageFor(model => model.CurrentLocation, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
-                                                @Html.EditorFor(model => model.CurrentCtc, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.CurrentCtc) } })
+                                                @Html.EditorFor(model => model.CurrentCtc, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(model => model.CurrentCtc) } })
                                                 @Html.ValidationMessageFor(model => model.CurrentCtc, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                @Html.EditorFor(model => model.PreferredLocation, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(model => model.PreferredLocation) } })
+                                                @Html.EditorFor(model => model.PreferredLocation, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(model => model.PreferredLocation) } })
                                                 @Html.ValidationMessageFor(model => model.PreferredLocation, "", new { @class = "text-danger" })
-
-
                                             </div>
                                             <div class="form-group">
-                                                @Html.EditorFor(model => model.CurrentLocation, new { htmlAttributes = new { @class = "form-control" }, @placeholder = Html.NameFor(model => model.CurrentLocation) })
-                                                @Html.ValidationMessageFor(model => model.CurrentLocation, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(model => model.Experience) } })
+                                                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -89,13 +114,11 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                               @{ Html.RenderPartial("_EducationDetail", Model.EducationViewModel.ToList()); }
+                                @{ Html.RenderPartial("_EducationDetails", Model.EducationViewModel.ToList());}
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-12" style="padding:10px">
-                               
                             </div>
                         </div>
                         <div class="row">
@@ -103,26 +126,35 @@
                                 <div class="billing-address">
                                     <h3>Resume</h3>
                                     <div id="shipping-inputs">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="resumePath" class="control-label sr-only">Resume Path</label>
-                                                <input type="text" class="form-control" id="resumePath" placeholder="Resume Path" readonly="readonly">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <button class="addResume">Upload Resume</button>
-                                            </div>
+                                        <span class="help-block">
+                                           Select PDF/DOC Files
+                                        </span>
+                                        <div class="input-group">
+                                            <label class="input-group-btn">
+                                                <span class="btn btn-primary">
+                                                    Browse&hellip;
+                                                    @Html.TextBoxFor(m => m.FileUpload, new { type = "file", accept = "application/msword, application/pdf", style = "display:none;width:500px" })
+                                                </span>
+                                            </label>
+                                            <input type="text" class="form-control" readonly style = "width:500px">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                <div class="row">
-                                    <button type="submit" class="btn btn-primary btn-block register-box"><i class="fa fa-check-circle"></i> Create Profile</button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="billing-address">
+                                  
+                                   
                                 </div>
-                                <div class="clearfix"></div>
-                                @*</form>*@}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit" class="btn btn-primary btn-block register-box" value="Create Profile" />
+                        </div>
+                        <div class="clearfix"></div>
+                        @*</form>*@}
                 </div>
                 <!-- END LOGIN BOX -->
             </div>

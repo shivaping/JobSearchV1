@@ -13,6 +13,5 @@ namespace JobSearch.DataAcccess.Models
         public string Institute { get; set; }
         public int Year { get; set; }
         public virtual UserDetail UserDetail { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
     }
 }

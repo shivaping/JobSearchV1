@@ -107,10 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\AccountViewModels.cs" />
-    <Compile Include="Model\ApiModel.cs" />
-    <Compile Include="Model\IdentityModels.cs" />
-    <Compile Include="Model\ManageViewModels.cs" />
+    <Compile Include="AccountViewModels.cs" />
+    <Compile Include="ApiModel.cs" />
+    <Compile Include="IdentityModels.cs" />
+    <Compile Include="ManageViewModels.cs" />
+    <Compile Include="ProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

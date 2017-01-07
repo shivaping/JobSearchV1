@@ -14,12 +14,12 @@ namespace JobSearch.DataAcccess.Models
         public string City { get; set; }
         public int State { get; set; }
         public int Country { get; set; }
-        public int Education_LevelID { get; set; }
         public int JobTypeId { get; set; }
         public Nullable<decimal> MinSalary { get; set; }
         public Nullable<decimal> MaxSalary { get; set; }
         public string JobDescription { get; set; }
         public System.DateTime PostingDate { get; set; }
         public string PostedBy { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
     }
 }

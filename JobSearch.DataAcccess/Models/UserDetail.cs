@@ -7,6 +7,7 @@ namespace JobSearch.DataAcccess.Models
     {
         public UserDetail()
         {
+            this.EmployerPostings = new List<EmployerPosting>();
             this.Jobs = new List<Job>();
             this.UserEducations = new List<UserEducation>();
             this.UserJobs = new List<UserJob>();
@@ -27,10 +28,10 @@ namespace JobSearch.DataAcccess.Models
         public string Email { get; set; }
         public string Secondary_Email { get; set; }
         public string Website { get; set; }
-        public string Profile { get; set; }
         public Nullable<bool> Married { get; set; }
         public System.DateTime Created_Date { get; set; }
         public System.DateTime Updated_Date { get; set; }
+        public virtual ICollection<EmployerPosting> EmployerPostings { get; set; }
         public virtual ICollection<Job> Jobs { get; set; }
         public virtual ICollection<UserEducation> UserEducations { get; set; }
         public virtual ICollection<UserJob> UserJobs { get; set; }
