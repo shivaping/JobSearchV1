@@ -33,14 +33,19 @@ namespace JobSearch.Web.Controllers
         {
             try
             {
-                byte[] uploadedFile = new byte[collection.FileUpload.InputStream.Length];
-                collection.FileUpload.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
-       //         return File(
-       //uploadedFile, System.Net.Mime.MediaTypeNames.Application.Octet, collection.FileUpload.FileName);
+                //byte[] uploadedFile = new byte[collection.FileUpload.InputStream.Length];
+                //collection.FileUpload.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+                //         return File(
+                //uploadedFile, System.Net.Mime.MediaTypeNames.Application.Octet, collection.FileUpload.FileName);
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
                     return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please correct all the validation errors");
+                    return View(collection);
                 }
             }
             catch

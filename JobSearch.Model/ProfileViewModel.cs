@@ -47,7 +47,7 @@ namespace JobSearch.Model
         public string Gender { get; set; }
 
         [Required]
-        [RegularExpression("[^0-9]", ErrorMessage = "Experience must be numeric")]
+        
         [Display(Name = "Experience in Months")]
         public double Experience { get; set; }
 
@@ -71,13 +71,22 @@ namespace JobSearch.Model
         public List<SkillViewModel> SkillViewModel { get; set; }
         public List<EducationViewModel> EducationViewModel { get; set; }
 
+        [Required]
         [NotMapped]
         [DataType(DataType.Upload)]
         [Display(Name = "Choose Resume File")]
-        [FileExtensions(Extensions = ".pdf,.doc,.docx")]
+        [ValidateFile(ErrorMessage = "Please select a PNG image smaller than 1MB")]
+        [FileExtensions(Extensions = ".pdf,.doc,.docx", ErrorMessage = "Please upload valid format")]
         public HttpPostedFileBase FileUpload { get; set; }
     }
-  
+    public class ValidateFileAttribute : RequiredAttribute
+    {
+        public override bool IsValid(object value)
+        {
+          
+            return false;
+        }
+    }
     public class SkillViewModel
     {
         public int ID { get; set; }
@@ -88,16 +97,20 @@ namespace JobSearch.Model
     {
         public int ID { get; set; }
 
+        [Required]
         [Display(Name = "Qualification")]
         public string Qualification { get; set; }
 
+        [Required]
         [Display(Name = "Specialization")]
         public string Specialization { get; set; }
 
+        [Required]
         [Display(Name = "Institute")]
         public string Institute { get; set; }
 
+        [Required]
         [Display(Name = "Year")]
-        public int Year { get; set; }
+        public int? Year { get; set; }
     }
 }

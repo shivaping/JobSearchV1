@@ -7,20 +7,20 @@
         <fieldset data-ng-repeat="edu in education">
             <div class="row" style="padding-top:5px">
                 <div style="padding-left:10px; float:left">
-                    @Html.EditorFor(modelItem => item.Qualification , new { htmlAttributes = new { @class = "form-control", @placeholder = Html.NameFor(modelItem => item.Qualification) } })
+                    @Html.EditorFor(modelItem => item.Qualification , new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(x => x.Qualification) } })
                     @Html.ValidationMessageFor(modelItem => item.Qualification, "", new { @class = "text-danger"})
                 </div>
                 <div style="padding-left:10px; float:left">
-                    @Html.EditorFor(modelItem => item.Specialization , new { htmlAttributes = new { @class = "form-control" , @placeholder = Html.DisplayFor(modelItem => item.Specialization)} })
+                    @Html.EditorFor(modelItem => item.Specialization , new { htmlAttributes = new { @class = "form-control" , @placeholder = Html.DisplayNameFor(x => x.Specialization)} })
                     @Html.ValidationMessageFor(modelItem => item.Specialization, "", new { @class = "text-danger" })
                 </div>
                 <div style="padding-left:10px; float:left">
-                    @Html.EditorFor(modelItem => item.Institute , new { htmlAttributes = new { @class = "form-control" , @placeholder = Html.DisplayFor(modelItem => item.Institute) } })
+                    @Html.EditorFor(modelItem => item.Institute , new { htmlAttributes = new { @class = "form-control" , @placeholder = Html.DisplayNameFor(x => x.Institute) } })
                     @Html.ValidationMessageFor(modelItem => item.Institute, "", new { @class = "text-danger" })
                 </div>
                 <div style="padding-left:10px; float:left">
                     <div style="float:left">
-                        @Html.EditorFor(modelItem => item.Year , new { htmlAttributes = new { @class = "form-control"  , @placeholder = Html.DisplayFor(modelItem => item.Year)} })
+                        @Html.EditorFor(modelItem => item.Year , new { htmlAttributes = new { @class = "form-control"  , @placeholder = Html.DisplayNameFor(x => x.Year)} })
                         @Html.ValidationMessageFor(modelItem => item.Year, "", new { @class = "text-danger" })
                     </div>
                     <div style="float:left;padding-left:5px">
@@ -32,4 +32,9 @@
 
     </div>
 }
-<button class="addfields" ng-click="addNewChoice()" type="button">Add fields</button>
+<div class="row" >
+    <div class="col-md-12" style="padding:10px">
+        <div class="billing-address">
+            <button class="addfields" ng-click="addNewChoice()" type="button">Add fields</button>
+        </div>
+    </div></div>
