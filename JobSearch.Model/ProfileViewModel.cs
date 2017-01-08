@@ -13,7 +13,6 @@ namespace JobSearch.Model
     {
         public ProfileViewModel()
         {
-            this.SkillViewModel = new List<SkillViewModel>();
             this.EducationViewModel = new List<EducationViewModel>() { new Model.EducationViewModel() };
         }
         public int ID { get; set; }
@@ -25,7 +24,7 @@ namespace JobSearch.Model
         [Display(Name = "Profile Description")]
         public string ProfileDescription { get; set; }
 
-        [Required]
+        
         public byte[] Resume { get; set; }
 
         [Required]
@@ -36,6 +35,7 @@ namespace JobSearch.Model
         [Display(Name = "Preferred Location")]
         public string PreferredLocation { get; set; }
 
+        [Required]
         public string CurrentRole { get; set; }
 
         [Required]
@@ -49,12 +49,12 @@ namespace JobSearch.Model
         [Required]
         
         [Display(Name = "Experience in Months")]
-        public double Experience { get; set; }
+        public double? Experience { get; set; }
 
         [Required]
         [Display(Name = "Current CTC in Lacs")]
         [RegularExpression("[+-]?([0-9]*[.])?[0-9]+", ErrorMessage = "CTC must be a valid value.")]
-        public decimal CurrentCtc { get; set; }
+        public decimal? CurrentCtc { get; set; }
 
         public bool Active { get; set; }
 
@@ -68,7 +68,11 @@ namespace JobSearch.Model
         [Required]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-        public List<SkillViewModel> SkillViewModel { get; set; }
+
+        [Required]
+        [Display(Name = "Skills (Comma Seperated)")]
+        public string Skill { get; set; }
+
         public List<EducationViewModel> EducationViewModel { get; set; }
 
         [Required]
@@ -87,12 +91,7 @@ namespace JobSearch.Model
             return false;
         }
     }
-    public class SkillViewModel
-    {
-        public int ID { get; set; }
-        public string SkillName { get; set; }
-        public string SkillDescription { get; set; }
-    }
+   
     public class EducationViewModel
     {
         public int ID { get; set; }

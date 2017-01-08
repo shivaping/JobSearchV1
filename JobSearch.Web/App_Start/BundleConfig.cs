@@ -9,7 +9,7 @@ namespace JobSearch.Web
         public static void RegisterBundles(BundleCollection bundles)
         {  
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js", "~/Scripts/jquery-ui.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                       "~/Scripts/jquery.validate*",
@@ -31,7 +31,8 @@ namespace JobSearch.Web
                  "~/Content/assets/css/bootstrap.css",
                  "~/Content/assets/css/font-awesome.min.css",
                  "~/Content/assets/css/main.css",
-                 "~/Content/assets/css/my-custom-styles.css"
+                 "~/Content/assets/css/my-custom-styles.css",
+                 "~/content/jquery-ui.css"
                  ));
         }
     }

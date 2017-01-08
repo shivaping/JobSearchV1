@@ -369,7 +369,6 @@
     <Content Include="Content\assets\img\user5.png" />
     <Content Include="Content\assets\js\bootstrap.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
-    <Content Include="Content\assets\js\jquery-2.1.1.min.js" />
     <Content Include="Content\assets\js\plugins\autohidingnavbar\jquery.bootstrap-autohidingnavbar.js" />
     <Content Include="Content\assets\js\plugins\autohidingnavbar\jquery.bootstrap-autohidingnavbar.min.js" />
     <Content Include="Content\assets\js\plugins\bootstrap-datepicker\bootstrap-datepicker.js" />
