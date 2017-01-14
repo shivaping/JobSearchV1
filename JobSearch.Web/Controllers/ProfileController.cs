@@ -24,35 +24,41 @@ namespace JobSearch.Web.Controllers
         // GET: Profile/Create
         public ActionResult Create()
         {
-            return View(new ProfileViewModel() );
+            return View(new ProfileViewModel
+                ()
+            {
+                Active = true,
+                CurrentCtc = 10,
+                CurrentLocation = "ban",
+                CurrentRole = "engineer",
+                Dob = DateTime.Now.AddYears(-36),
+                EducationViewModel = new List<EducationViewModel>()
+                   {
+                       new EducationViewModel() { ID = 1, Institute = "RR", Qualification = "SS", Specialization= "DD", Year = 1980 },
+                       new EducationViewModel() { ID = 2, Institute = "bb", Qualification = "gg", Specialization= "tt", Year = 1982 }
+                   }, Email = "ss@ss.com",Experience = 10, Gender = "Male", Name="Shiva", ID=1, PhoneNumber="asdasdads", PreferredLocation= "Na",
+ ProfileDescription= "adasdasdasdasdadasdsa asd asd ad asd asd ad asd asd adasd asd asdas", ProfileName="shivas",  Skill= "ASDASD,ASDASD, RTERT, EWRWER"            }
+                );
         }
 
         // POST: Profile/Create
         [HttpPost]
-        public ActionResult Create(ProfileViewModel collection, FormCollection formCollection)
+        public ActionResult Create(ProfileViewModel profileModel)
         {
-            try
+            //byte[] uploadedFile = new byte[collection.FileUpload.InputStream.Length];
+            //collection.FileUpload.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+            //         return File(
+            //uploadedFile, System.Net.Mime.MediaTypeNames.Application.Octet, collection.FileUpload.FileName);
+            // TODO: Add insert logic here
+            if (ModelState.IsValid)
             {
-                //byte[] uploadedFile = new byte[collection.FileUpload.InputStream.Length];
-                //collection.FileUpload.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
-                //         return File(
-                //uploadedFile, System.Net.Mime.MediaTypeNames.Application.Octet, collection.FileUpload.FileName);
-                // TODO: Add insert logic here
-                if (ModelState.IsValid)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Please correct all the validation errors");
-                    return View(collection);
-                }
+                return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
+                ModelState.AddModelError("", "Please correct all the validation errors");
+                return View(profileModel);
             }
-            return View(collection);
         }
 
         // GET: Profile/Edit/5

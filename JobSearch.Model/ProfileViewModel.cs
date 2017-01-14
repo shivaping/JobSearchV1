@@ -20,8 +20,8 @@ namespace JobSearch.Model
         [Display(Name = "Profile Name")]
         public string ProfileName { get; set; }
 
-        [Required]
         [Display(Name = "Profile Description")]
+        [DataType(DataType.MultilineText)]
         public string ProfileDescription { get; set; }
 
         
@@ -40,8 +40,9 @@ namespace JobSearch.Model
 
         [Required]
         [Display(Name= "Date Of Birth")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
-        public System.DateTime Dob { get; set; }
+        public Nullable<System.DateTime> Dob { get; set; }
 
         [Required]
         public string Gender { get; set; }
@@ -69,28 +70,18 @@ namespace JobSearch.Model
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
-        [Required]
         [Display(Name = "Skills (Comma Seperated)")]
+        [DataType(DataType.MultilineText)]
         public string Skill { get; set; }
 
         public List<EducationViewModel> EducationViewModel { get; set; }
 
-        [Required]
         [NotMapped]
         [DataType(DataType.Upload)]
-        [Display(Name = "Choose Resume File")]
-        [ValidateFile(ErrorMessage = "Please select a PNG image smaller than 1MB")]
         [FileExtensions(Extensions = ".pdf,.doc,.docx", ErrorMessage = "Please upload valid format")]
         public HttpPostedFileBase FileUpload { get; set; }
     }
-    public class ValidateFileAttribute : RequiredAttribute
-    {
-        public override bool IsValid(object value)
-        {
-          
-            return false;
-        }
-    }
+   
    
     public class EducationViewModel
     {
