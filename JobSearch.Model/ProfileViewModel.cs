@@ -24,8 +24,8 @@ namespace JobSearch.Model
         [DataType(DataType.MultilineText)]
         public string ProfileDescription { get; set; }
 
-        
-        public byte[] Resume { get; set; }
+        [Display(Name = "Resume File Name")]
+        public string ResumeFileName { get; set; }
 
         [Required]
         [Display(Name = "Current Location")]
@@ -36,6 +36,7 @@ namespace JobSearch.Model
         public string PreferredLocation { get; set; }
 
         [Required]
+        [Display(Name = "Current Role")]
         public string CurrentRole { get; set; }
 
         [Required]
@@ -45,12 +46,13 @@ namespace JobSearch.Model
         public Nullable<System.DateTime> Dob { get; set; }
 
         [Required]
-        public string Gender { get; set; }
+        public GenderType Gender { get; set; }
 
         [Required]
         
         [Display(Name = "Experience in Months")]
-        public double? Experience { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Experience must be a positive number")]
+        public int Experience { get; set; }
 
         [Required]
         [Display(Name = "Current CTC in Lacs")]
@@ -63,11 +65,11 @@ namespace JobSearch.Model
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "Your must provide a PhoneNumber")]
+        [Display(Name = "Home Phone")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^([\+]|0)[(\s]{0,1}[2-9][0-9]{0,2}[\s-)]{0,2}[0-9][0-9][0-9\s-]*[0-9]$", ErrorMessage = "Please enter a valid phone number with country code")]
 
-        [Required]
-        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Skills (Comma Seperated)")]
@@ -81,8 +83,12 @@ namespace JobSearch.Model
         [FileExtensions(Extensions = ".pdf,.doc,.docx", ErrorMessage = "Please upload valid format")]
         public HttpPostedFileBase FileUpload { get; set; }
     }
-   
-   
+    public enum GenderType
+    {
+        Male = 1,
+        Female = 2
+    }
+
     public class EducationViewModel
     {
         public int ID { get; set; }

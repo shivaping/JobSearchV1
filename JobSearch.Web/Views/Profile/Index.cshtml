@@ -1,0 +1,69 @@
+﻿@model IEnumerable<JobSearch.Model.ProfileViewModel>
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="wrapper">
+    <div class="shop-main checkout">
+        <h2>Profiles</h2>
+        <div class="container ">
+            <div class="fuelux">
+                <div id="checkout-wizard" class="wizard checkout-wizard">
+                    <div class="step-content">
+                        <table class="table shopping-cart-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProfileName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CurrentRole)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                                    </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="item">
+                                            @Html.DisplayFor(modelItem => item.ProfileName)
+                                        </td>
+                                        <td class="item">
+                                            @Html.DisplayFor(modelItem => item.CurrentRole)
+                                        </td>
+                                        <td class="item">
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td class="item">
+                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                        </td>
+                                        <td class="item">
+                                            @Html.ActionLink("Update", "Update", new { id = item.ID }) 
+                                            
+                                            @*|@Html.ActionLink("Details", "Details", new { id = item.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

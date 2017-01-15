@@ -1319,6 +1319,8 @@
     <Content Include="Views\Shared\_UserSkills.cshtml" />
     <Content Include="Views\Shared\_EducationDetails.cshtml" />
     <Content Include="Views\Profile\Create.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
