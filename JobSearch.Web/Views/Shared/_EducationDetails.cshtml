@@ -6,23 +6,20 @@
         $scope.education = @Html.Raw(Json.Encode(Model));
         console.log($scope.education);
         $scope.addNewChoice = function () {
-            alert('herere')
             var newItemNo = $scope.education.length + 1;
             $scope.education.push({ 'id': newItemNo });
         };
         $scope.removeChoice = function () {
-            alert('remove space')
             var lastItem = $scope.education.length - 1;
             $scope.education.splice(lastItem);
         };
         $scope.removeChoice = function (currentValue) {
-            alert('remove')
             var lastItem = $scope.education.length - 1;
             $scope.education.splice(lastItem);
         };
     });</script>
 
-<div class="billing-address" ng-controller="StudentCtrl">
+<div class="billing-address" data-ng-controller="StudentCtrl">
     <div class="row" style="padding-top:5px">
         <div style="padding-left:10px; float:left" class="col-md-3" >
             <label>Qualification</label>
@@ -78,7 +75,7 @@
     <div class="row">
         <div class="col-md-12" style="padding:10px">
             <div class="billing-address">
-                <button class="addfields" ng-click="addNewChoice()" type="button">Add fields</button>
+                <button class="addfields" data-ng-click="addNewChoice()" type="button">Add fields</button>
             </div>
         </div>
     </div>

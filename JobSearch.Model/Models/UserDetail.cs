@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JobSearch.DataAcccess.Models
+namespace JobSearch.Model.Models
 {
     public partial class UserDetail
     {

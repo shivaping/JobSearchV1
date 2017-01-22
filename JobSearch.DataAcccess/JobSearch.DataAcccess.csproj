@@ -54,10 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\EmployerDetail.cs" />
     <Compile Include="Models\EmployerPosting.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobPortalContext.cs" />
     <Compile Include="Models\JobType.cs" />
+    <Compile Include="Models\Mapping\EmployerDetailMap.cs" />
     <Compile Include="Models\Mapping\EmployerPostingMap.cs" />
     <Compile Include="Models\Mapping\JobMap.cs" />
     <Compile Include="Models\Mapping\JobTypeMap.cs" />

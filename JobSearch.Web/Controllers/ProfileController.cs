@@ -26,7 +26,8 @@ namespace JobSearch.Web.Controllers
         // GET: Profile/Create
         public ActionResult Create()
         {
-            return View();
+            return View(GetProfiles().FirstOrDefault());
+            //return View(new ProfileViewModel());
         }
         public List<ProfileViewModel> GetProfiles()
         {

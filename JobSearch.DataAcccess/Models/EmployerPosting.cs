@@ -6,6 +6,7 @@ namespace JobSearch.DataAcccess.Models
     public partial class EmployerPosting
     {
         public int ID { get; set; }
+        public int EmployerID { get; set; }
         public int PostingTypeID { get; set; }
         public string ContactPerson { get; set; }
         public string Title { get; set; }
@@ -20,6 +21,6 @@ namespace JobSearch.DataAcccess.Models
         public string JobDescription { get; set; }
         public System.DateTime PostingDate { get; set; }
         public string PostedBy { get; set; }
-        public virtual UserDetail UserDetail { get; set; }
+        public virtual EmployerDetail EmployerDetail { get; set; }
     }
 }

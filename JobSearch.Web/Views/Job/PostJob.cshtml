@@ -1,8 +1,134 @@
-﻿
+﻿@model JobSearch.Model.JobViewModel
+
 @{
     ViewBag.Title = "PostJob";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
+<div class="container" data-ng-app="ngmodule">
+    <div class="account-box login-box box-with-help" style="margin-bottom:10px">
+        <div style="margin:10px">
+            <div>
+                <!-- BREADCRUMBS -->
+                <ol class="breadcrumb link-accent separator-arrow">
+                    <li><a href="~/" title="Home"><i class="fa fa-home"></i></a></li>
+                    <li class="active">Create Profile</li>
+                </ol>
+                <!-- END BREADCRUMBS -->
+                <!-- LOGIN BOX -->
+                <div class="row">
+                    @using (Ajax.BeginForm("", "", null, new AjaxOptions { HttpMethod = "POST", Url = "http://localhost/JobSearch.WebAPI/api/jobsearch/postjob" }, new { id = "frmpostjob", name = "frmpostjob" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="billing-address">
+                                    <h3>Job Details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Title)
+                                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Location)
+                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Experience)
+                                                @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.JobType)
+                                                @Html.EnumDropDownListFor(model => model.JobType, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.JobType, "", new { @class = "text-danger" })
+                                            </div>
+                                          
 
-<h2>PostJob</h2>
+                                        </div>
 
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.JobDescription)
+                                                @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="shipping-address">
+                                    <h3>Technical Details</h3>
+                                    <div id="shipping-inputs" class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Technology)
+                                                @Html.EditorFor(model => model.Technology, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Technology, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.TechnicalSkills)
+                                                @Html.EditorFor(model => model.TechnicalSkills, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.TechnicalSkills, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Positions)
+                                                @Html.EditorFor(model => model.Positions, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Positions, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.ReferralAmount)
+                                                @Html.EditorFor(model => model.ReferralAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.ReferralAmount, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.AboutClient)
+                                                @Html.EditorFor(model => model.AboutClient, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.AboutClient, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding:10px">
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <input type="submit" class="btn btn-primary btn-block register-box" value="Post Job" />
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    
+                    }
+                </div>
+                <!-- END LOGIN BOX -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -41,6 +41,7 @@ namespace JobSearch.DataAcccess.Models.Mapping
             // Table & Column Mappings
             this.ToTable("EmployerPosting");
             this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.EmployerID).HasColumnName("EmployerID");
             this.Property(t => t.PostingTypeID).HasColumnName("PostingTypeID");
             this.Property(t => t.ContactPerson).HasColumnName("ContactPerson");
             this.Property(t => t.Title).HasColumnName("Title");
@@ -57,9 +58,9 @@ namespace JobSearch.DataAcccess.Models.Mapping
             this.Property(t => t.PostedBy).HasColumnName("PostedBy");
 
             // Relationships
-            this.HasRequired(t => t.UserDetail)
+            this.HasRequired(t => t.EmployerDetail)
                 .WithMany(t => t.EmployerPostings)
-                .HasForeignKey(d => d.PostedBy);
+                .HasForeignKey(d => d.EmployerID);
 
         }
     }

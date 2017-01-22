@@ -1,8 +1,8 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using JobSearch.DataAcccess.Models.Mapping;
+using JobSearch.Model.Models.Mapping;
 
-namespace JobSearch.DataAcccess.Models
+namespace JobSearch.Model.Models
 {
     public partial class JobPortalContext : DbContext
     {
@@ -17,7 +17,6 @@ namespace JobSearch.DataAcccess.Models
         }
 
         public DbSet<EmployerDetail> EmployerDetails { get; set; }
-        public DbSet<EmployerPosting> EmployerPostings { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<JobType> JobTypes { get; set; }
         public DbSet<Skill> Skills { get; set; }
@@ -31,7 +30,6 @@ namespace JobSearch.DataAcccess.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new EmployerDetailMap());
-            modelBuilder.Configurations.Add(new EmployerPostingMap());
             modelBuilder.Configurations.Add(new JobMap());
             modelBuilder.Configurations.Add(new JobTypeMap());
             modelBuilder.Configurations.Add(new SkillMap());

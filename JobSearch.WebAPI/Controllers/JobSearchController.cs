@@ -31,20 +31,17 @@ namespace JobSearch.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { UserDetails = portalRepository.GetUserDetail(User.Identity.GetUserId()) });
             
         }
-        //// Get all orders
-        //[Route("jobs")]
-        //public List<Job> GetJobs()
-        //{
-        //    List<Job> returnValue = ctx.Jobs.ToList();
-        //    return returnValue;
-        //}
-        //// Get Orders based on Criteria
-        //[Route("jobs/{keyword}")]
-        //public List<Job> GetJobsByFilter(string keyword)
-        //{
-        //    List<Job> returnValue = ctx.Jobs.Where(p => p.client.Contains(keyword) ||
-        //     p.generalskills.Contains(keyword) || p.location.Contains(keyword)).ToList();
-        //    return returnValue;
-        //}
+
+
+        ///<summary>
+        ///Post the Job Details from JobViewModel Object
+        ///</summary>
+        ////// <param name="id">The ID of the data.</param>
+        [Route("PostJob")]
+        public HttpResponseMessage PostJob([FromBody]JobSearch.Model.JobViewModel JobDetails)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, new { UserDetails = portalRepository.GetUserDetail(User.Identity.GetUserId()) });
+
+        }
     }
 }
