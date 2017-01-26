@@ -1,5 +1,4 @@
 ﻿@model JobSearch.Model.JobViewModel
-
 @{
     ViewBag.Title = "PostJob";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,14 +11,12 @@
                 <!-- BREADCRUMBS -->
                 <ol class="breadcrumb link-accent separator-arrow">
                     <li><a href="~/" title="Home"><i class="fa fa-home"></i></a></li>
-                    <li class="active">Create Profile</li>
+                    <li class="active">Post Job</li>
                 </ol>
                 <!-- END BREADCRUMBS -->
                 <!-- LOGIN BOX -->
-                <div class="row">
-                    @using (Ajax.BeginForm("", "", null, new AjaxOptions { HttpMethod = "POST", Url = "http://localhost/JobSearch.WebAPI/api/jobsearch/postjob" }, new { id = "frmpostjob", name = "frmpostjob" }))
-                    {
-                        @Html.AntiForgeryToken()
+                <div class="row" data-ng-controller="ngcontroller">
+                    <form class="form-horizontal" ng-submit="postJob(jobData)" role="form" name="form">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="row">
                             <div class="col-sm-6">
@@ -29,29 +26,39 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Title)
-                                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Title", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Location)
-                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Location", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.Experience)
-                                                @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.MinExperience)
+                                                        @Html.EditorFor(model => model.MinExperience, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.MinExperience", @ng_required = "true" } })
+                                                        @Html.ValidationMessageFor(model => model.MinExperience, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.MaxExperience)
+                                                        @Html.EditorFor(model => model.MaxExperience, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.MaxExperience", @ng_required = "true" } })
+                                                        @Html.ValidationMessageFor(model => model.MaxExperience, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
                                             </div>
+
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.JobType)
-                                                @Html.EnumDropDownListFor(model => model.JobType, htmlAttributes: new { @class = "form-control" })
+                                                @Html.EnumDropDownListFor(model => model.JobType, htmlAttributes: new { @class = "form-control", @ng_model = "jobData.JobType", @ng_required = "true" })
                                                 @Html.ValidationMessageFor(model => model.JobType, "", new { @class = "text-danger" })
                                             </div>
-                                          
-
                                         </div>
 
                                     </div>
@@ -59,7 +66,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.JobDescription)
-                                                @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.JobDescription", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -73,24 +80,24 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Technology)
-                                                @Html.EditorFor(model => model.Technology, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.Technology, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Technology", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.Technology, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.TechnicalSkills)
-                                                @Html.EditorFor(model => model.TechnicalSkills, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.TechnicalSkills, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.TechnicalSkills", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.TechnicalSkills, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Positions)
-                                                @Html.EditorFor(model => model.Positions, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.Positions, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Positions", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.Positions, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.ReferralAmount)
-                                                @Html.EditorFor(model => model.ReferralAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.ReferralAmount, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.ReferralAmount", @ng_required = "false" } })
                                                 @Html.ValidationMessageFor(model => model.ReferralAmount, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -99,7 +106,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.AboutClient)
-                                                @Html.EditorFor(model => model.AboutClient, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.AboutClient, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.AboutClient", @ng_required = "true" } })
                                                 @Html.ValidationMessageFor(model => model.AboutClient, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -115,13 +122,13 @@
                         <div class="row" style="margin-top:20px">
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
-                                <input type="submit" class="btn btn-primary btn-block register-box" value="Post Job" />
+                                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-block"><i class="fa fa-check-circle"></i> Post Job</button>
                             </div>
                             <div class="col-md-4"></div>
                         </div>
                         <div class="clearfix"></div>
-                    
-                    }
+
+                    </form>
                 </div>
                 <!-- END LOGIN BOX -->
             </div>

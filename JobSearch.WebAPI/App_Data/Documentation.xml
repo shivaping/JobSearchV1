@@ -486,5 +486,11 @@
             Post the Job Details from JobViewModel Object
             </summary>
         </member>
+        <member name="M:JobSearch.WebAPI.Controllers.JobSearchController.GetPostedJobs">
+            <summary>
+            Get the Job details
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

@@ -48,6 +48,16 @@ app.service('ngservice', function ($http) {
         });
         return resp;
     };
+
+    var postJobURI = "/JobSearch.WebAPI/api/jobsearch/PostJob";
+    this.postJob = function (postData) {
+        var resp = $http({
+            url: postJobURI,
+            method: "POST",
+            data: postData,
+        });
+        return resp;
+    };
 });
 
 //Declaring the Controller
@@ -149,7 +159,36 @@ app.controller('ngcontroller', function ($scope, ngservice) {
     function extractLast(term) {
         return split(term).pop();
     }
+    $scope.postJob = function (postData) {
 
+        //var userInfo = {
+        //    email: "shiva.koundinya@gmail.com",
+        //    password: "Moukhthi@9",
+        //    grant_type: "password"
+        //};
+        //alert(JSON.stringify(postData))
+        ngservice.postJob(postData).success(function (response) {
+
+            var token = response.access_token;
+            //if (loginData.useRefreshTokens) {
+            //    //localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
+            //}
+            //else {
+
+            //    //localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
+            //}
+            //_authentication.isAuth = true;
+            //_authentication.userName = loginData.userName;
+            //_authentication.useRefreshTokens = loginData.useRefreshTokens;
+
+            //deferred.resolve(response);
+
+        }).error(function (err, status) {
+            //_logOut();
+            //deferred.reject(err);
+        });
+
+    }
     $scope.autoComplete = function (e) {
         $('#'+e.srcElement.id)
         .bind("keydown", function (event) {
@@ -209,5 +248,39 @@ app.directive("passwordVerify", function () {
                 }
             });
         }
+    };
+});
+
+app.controller('jobcontroller', function ($scope, jobservice) {
+
+    $scope.filterValue = ""; //The object used to read value entered into textbox for filtering information from table
+    var promise = jobservice.getPostedJobs();
+    promise.then(function (resp) {
+        $scope.jobs = resp.data;
+        $scope.Message = "Call is Completed Successfully";
+    }, function (err) {
+        $scope.Message = "Call Failed " + err.status;
+    });
+   
+    
+});
+
+app.service('jobservice', function ($http) {
+    var apiJobsURI = "/JobSearch.WebAPI/api/jobsearch/GetPostedJobs";
+    //The function to read all Orders
+    this.getPostedJobs = function () {
+        var res = $http.get(apiJobsURI);
+        return res;
+    };
+   
+
+    var postJobURI = "/JobSearch.WebAPI/api/jobsearch/PostJob";
+    this.postJob = function (postData) {
+        var resp = $http({
+            url: postJobURI,
+            method: "POST",
+            data: postData,
+        });
+        return resp;
     };
 });

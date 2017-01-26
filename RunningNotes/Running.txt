@@ -43,3 +43,7 @@ http://cpratt.co/file-uploads-in-asp-net-mvc-with-view-models/
 	   
 	   
 	   file uploadedFile http://bootsnipp.com/snippets/Rl08A
+	   
+	   
+	   
+	   https://channel9.msdn.com/Events/Build/2014/3-644 - Building a Single Page Application with ASP.NET and AngularJS https://github.com/jongalloway/Angular-and-ASPNET-Build2014
