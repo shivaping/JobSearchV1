@@ -1,4 +1,5 @@
 ﻿@model JobSearch.Model.JobViewModel
+
 @{
     ViewBag.Title = "PostJob";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -32,8 +33,8 @@
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Location)
-                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Location", @ng_required = "true", onFocus = "geolocate()" } })
-                                                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Location", @ng_required = "true", @googleplace ="" } })
+                                                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger"})
                                             </div>
 
                                         </div>
@@ -42,14 +43,18 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         @Html.LabelFor(model => model.MinExperience)
-                                                        @Html.EditorFor(model => model.MinExperience, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.MinExperience", @ng_required = "true" } })
+                                                        @*@Html.EditorFor(model => model.MinExperience, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.MinExperience", @ng_required = "true" } })*@
+                                                        @Html.DropDownListFor(model => model.MinExperience, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }),"Select"
+                                                       , new { @class = "form-control", @ng_model = "jobData.MinExperience", @ng_required = "true" } )
                                                         @Html.ValidationMessageFor(model => model.MinExperience, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         @Html.LabelFor(model => model.MaxExperience)
-                                                        @Html.EditorFor(model => model.MaxExperience, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.MaxExperience", @ng_required = "true" } })
+                                                        @*@Html.EditorFor(model => model.MaxExperience, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.MaxExperience", @ng_required = "true" } })*@
+                                                        @Html.DropDownListFor(model => model.MaxExperience, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }),"Select"
+                                                       , new { @class = "form-control", @ng_model = "jobData.MaxExperience", @ng_required = "true" } )
                                                         @Html.ValidationMessageFor(model => model.MaxExperience, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
@@ -104,7 +109,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Positions)
-                                                @Html.EditorFor(model => model.Positions, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Positions", @ng_required = "true" } })
+                                                @Html.DropDownListFor(model => model.Positions, Enumerable.Range(1, 100).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Select"
+                                                       , new { @class = "form-control", @ng_model = "jobData.Positions", @ng_required = "true" })
                                                 @Html.ValidationMessageFor(model => model.Positions, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
@@ -153,4 +159,4 @@
 }
 
 <link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
-<script src="~/Scripts/GoogleLocation/location.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpIaYHDSk7CM8k13QxEKEz4uoGIu99tE0&libraries=places"></script>
