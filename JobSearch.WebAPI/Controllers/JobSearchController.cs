@@ -52,8 +52,8 @@ namespace JobSearch.WebAPI.Controllers
         public HttpResponseMessage GetPostedJobs()
         {
             List<JobSearch.Model.JobViewModel> jobs = new List<Model.JobViewModel>();
-            jobs.Add(new Model.JobViewModel() { AboutClient = "About Client1", Client = "Client1", CreatedBy = Guid.NewGuid().ToString(), GeneralSkills = "GeneralSkills1", JobDescription = "JobDescription1", MaxExperience = 10, MinExperience = 1, Positions = 2, ReferralAmount = 10, TechnicalSkills = "Technicalskills", Technology = ".net", Location = "Bangalore", JobType = Model.JobType.Contract, Title = "Title" });
-            jobs.Add(new Model.JobViewModel() { AboutClient = "About Client1", Client = "Client1", CreatedBy = Guid.NewGuid().ToString(), GeneralSkills = "GeneralSkills1", JobDescription = "JobDescription1", MaxExperience = 10, MinExperience = 1, Positions = 2, ReferralAmount = 10, TechnicalSkills = "Technicalskills", Technology = ".net", Location = "Bangalore", JobType = Model.JobType.Contract, Title = "Title" });
+            jobs.Add(new Model.JobViewModel() { AboutCompany = "About Client1", Client = "Client1", CreatedBy = Guid.NewGuid().ToString(), GeneralSkills = "GeneralSkills1", JobDescription = "JobDescription1", MaxExperience = 10, MinExperience = 1, Positions = 2, ReferralAmount = 10, TechnicalSkills = "Technicalskills", Technology = ".net", Location = "Bangalore", JobType = Model.JobType.Contract, Title = "Title" });
+            jobs.Add(new Model.JobViewModel() { AboutCompany = "About Client1", Client = "Client1", CreatedBy = Guid.NewGuid().ToString(), GeneralSkills = "GeneralSkills1", JobDescription = "JobDescription1", MaxExperience = 10, MinExperience = 1, Positions = 2, ReferralAmount = 10, TechnicalSkills = "Technicalskills", Technology = ".net", Location = "Bangalore", JobType = Model.JobType.Contract, Title = "Title" });
             return Request.CreateResponse(HttpStatusCode.OK, jobs);
         }
 

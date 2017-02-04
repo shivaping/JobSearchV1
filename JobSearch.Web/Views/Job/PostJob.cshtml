@@ -3,7 +3,8 @@
     ViewBag.Title = "PostJob";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+
 <div class="container" data-ng-app="ngmodule">
     <div class="account-box login-box box-with-help" style="margin-bottom:10px">
         <div style="margin:10px">
@@ -31,7 +32,7 @@
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Location)
-                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Location", @ng_required = "true" } })
+                                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.Location", @ng_required = "true", onFocus = "geolocate()" } })
                                                 @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
                                             </div>
 
@@ -61,6 +62,17 @@
                                             </div>
                                         </div>
 
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-md-offset-3">
+                                            <span id="street_number"></span> 
+                                            <span id="route"></span> 
+                                            <span id="locality" ></span> 
+                                            <span id="administrative_area_level_1"></span> 
+                                            <span  id="administrative_area_level_1"></span> 
+                                            <span  id="postal_code"></span> 
+                                            <span id="country"></span>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -105,9 +117,9 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                @Html.LabelFor(model => model.AboutClient)
-                                                @Html.EditorFor(model => model.AboutClient, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.AboutClient", @ng_required = "true" } })
-                                                @Html.ValidationMessageFor(model => model.AboutClient, "", new { @class = "text-danger" })
+                                                @Html.LabelFor(model => model.AboutCompany)
+                                                @Html.EditorFor(model => model.AboutCompany, new { htmlAttributes = new { @class = "form-control", @ng_model = "jobData.AboutClient", @ng_required = "true" } })
+                                                @Html.ValidationMessageFor(model => model.AboutCompany, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -139,3 +151,6 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<link href="/JobSearch/Content/assets/css/shop-main.css" rel="stylesheet" />
+<script src="~/Scripts/GoogleLocation/location.js"></script>

@@ -37,7 +37,7 @@ namespace JobSearch.Model
         public string TechnicalSkills { get; set; }
         [Required]
         [DataType(DataType.MultilineText)]
-        public string AboutClient { get; set; }
+        public string AboutCompany { get; set; }
         [Required]
         public int Positions { get; set; }
         [Required]
@@ -48,7 +48,7 @@ namespace JobSearch.Model
         [Range(1, int.MaxValue, ErrorMessage = "Enter valid referral amount")]
         public int ReferralAmount { get; set; }
         [Required]
-        [Range(1, 3, ErrorMessage = "Select Job Type")]
+        [Range(1, 2, ErrorMessage = "Select Job Type")]
         public JobType JobType { get; set; }
     }
     public enum JobType
