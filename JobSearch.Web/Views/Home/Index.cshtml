@@ -8,47 +8,95 @@
     <div class="container ">
         <div data-ng-app="ngmodule">
             <div data-ng-controller="ngcontroller">
-                <div class="fuelux">
-                    <div id="checkout-wizard" class="wizard checkout-wizard">
-                        <div class="searchbox center-block">
-                            <div class="input-group input-group-sm">
-                                <input type="text" class="form-control" placeholder="Search Jobs ..." data-ng-model="filterValue">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" data-ng-click="getFilteredData()"><i class="fa fa-search"></i></button>
-                                </span>
+                <div class="center-block">
+                    <form class="form-inline" role="form">
+                        <div class="form-group ">
+                            <input type="text" class="form-control" placeholder="Skills, Designations, Companies" data-ng-model="filterValue" data-ng-click="getFilteredData()" style="min-width:250px" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Location" data-ng-model="filterValue" style="min-width:250px" />
+                        </div>
+                        <div class="form-group">
+                            @Html.DropDownList("experience", Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Experience", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.DropDownList("Salary", Enumerable.Range(1, 500).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "Sal In Lakhs", new { @class = "form-control" })
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                    </form>
+                </div>
+            </div>
+            <p>
+                <div class="container">
+                    <div class="fuelux">
+                        <div id="checkout-wizard" class="wizard checkout-wizard">
+
+                            <div class="step-content">
+                                <!-- SHOPPING CART -->
+                                <div class="step-pane active" data-step="1">
+                                    <h2 class="sr-only">Shopping Cart</h2>
+
+                                    <table class="table shopping-cart-table">
+                                        <thead>
+                                            <tr>
+                                                <th>PRODUCTS</th>
+                                                <th>PRICE</th>
+                                                <th>QUANTITY</th>
+                                                <th>TOTAL</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="item">
+                                                    <div class="media">
+                                                        <span class="media-left">
+                                                            <img src="assets/img/products/furniture1.png" class="product-image" alt="Product Image">
+                                                        </span>
+                                                        <div class="media-body">
+                                                            <a href="#" class="product-title">Colorful Cushion</a>
+                                                            <span class="brief-desc">A brand-new, unused, unopened, undamaged item in its original packaging (where packaging is applicable)</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="unit-price">$24</td>
+                                                <td class="qty">
+                                                    <input type="number" name="product1Qty" min="1" max="999" value="1" class="form-control input-sm qty-spinner input-number_noSpinners">
+                                                </td>
+                                                <td class="total-price">$24</td>
+                                                <td class="remove">
+                                                    <button type="button" class="btn btn-link btn-remove" title="Remove this item"><i class="fa fa-remove"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="item">
+                                                    <div class="media">
+                                                        <span class="media-left">
+                                                            <img src="assets/img/products/furniture5.png" class="product-image" alt="Product Image">
+                                                        </span>
+                                                        <div class="media-body">
+                                                            <a href="#" class="product-title">Fun Cushion</a>
+                                                            <span class="brief-desc">A brand-new, unused, unopened, undamaged item in its original packaging (where packaging is applicable)</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="unit-price">$20</td>
+                                                <td class="qty">
+                                                    <input type="number" name="product1Qty" min="1" max="999" value="1" class="form-control input-sm qty-spinner input-number_noSpinners">
+                                                </td>
+                                                <td class="total-price">$20</td>
+                                                <td class="remove">
+                                                    <button type="button" class="btn btn-link btn-remove" title="Remove this item"><i class="fa fa-remove"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="">
-                    <table class="table shopping-cart-table">
-                        <thead>
-                            <tr>
-                                <th>Job Description</th>
-                                <th>Skills</th>
-                                <th>Client</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-ng-repeat="job in jobs">
-                                <td class="item">
-                                    <div class="media">
-                                        <span class="media-left">
-                                            {{job.location}}
-                                        </span>
-                                        <div class="media-body">
-                                            <a href="#" class="product-title">{{job.jobtitle}}</a>
-                                            <span class="brief-desc">{{job.job_description}}</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="unit-price">{{job.technicalskills}}</td>
-                                <td class="total-price">{{job.client}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </p>
         </div>
     </div>
 </div>
