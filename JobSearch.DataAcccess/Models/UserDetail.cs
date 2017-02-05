@@ -5,7 +5,8 @@ namespace JobSearch.DataAcccess.Models
 {
     public partial class UserDetail
     {
-        public UserDetail()
+  
+        protected UserDetail()
         {
             this.Jobs = new List<Job>();
             this.UserEducations = new List<UserEducation>();

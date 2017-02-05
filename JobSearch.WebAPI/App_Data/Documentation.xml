@@ -481,12 +481,28 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:JobSearch.WebAPI.Controllers.JobSearchController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JobSearch.WebAPI.Controllers.JobSearchController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JobSearch.WebAPI.Controllers.JobSearchController.GetUserDetail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:JobSearch.WebAPI.Controllers.JobSearchController.PostJob(JobSearch.Model.JobViewModel)">
             <summary>
             Post the Job Details from JobViewModel Object
             </summary>
         </member>
-        <member name="M:JobSearch.WebAPI.Controllers.JobSearchController.GetPostedJobs">
+        <member name="M:JobSearch.WebAPI.Controllers.JobSearchController.GetJobs">
             <summary>
             Get the Job details
             </summary>

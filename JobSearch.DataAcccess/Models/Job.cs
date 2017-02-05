@@ -5,6 +5,7 @@ namespace JobSearch.DataAcccess.Models
 {
     public partial class Job
     {
+        protected Job() { }
         public int ID { get; set; }
         public string Location { get; set; }
         public string JobTitle { get; set; }
@@ -25,4 +26,6 @@ namespace JobSearch.DataAcccess.Models
         public virtual JobType JobType1 { get; set; }
         public virtual UserDetail UserDetail { get; set; }
     }
+
+    
 }

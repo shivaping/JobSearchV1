@@ -9,6 +9,8 @@ using System.Data.Entity;
 
 namespace JobSearch.BusinessLogic.Repository
 {
+
+    /*
     public interface IJobPortalRepository
     {
         UserDetail GetUserDetail(string userID);
@@ -192,4 +194,5 @@ namespace JobSearch.BusinessLogic.Repository
         }
 
     }
+    */
 }
